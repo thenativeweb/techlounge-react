@@ -1,0 +1,22 @@
+{
+  "name": "techlounge-react",
+  "version": "1.0.0",
+  "description": "Begleitende Code Beispiele zum Video-Kurs Einführung in React von thenativeweb.io",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-es": "^3.19.60"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thenativeweb/techlounge-react.git"
+  },
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/thenativeweb/techlounge-react/issues"
+  },
+  "homepage": "https://github.com/thenativeweb/techlounge-react#readme"
+}
