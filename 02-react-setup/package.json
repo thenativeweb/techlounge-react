@@ -5,14 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "npx servor --reload",
-    "compile": "babel src --out-dir lib",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "babel src --out-dir lib"
   },
   "author": "David Losert",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/preset-react": "^7.9.4"
+    "@babel/cli": "7.8.4",
+    "@babel/core": "7.9.6",
+    "@babel/preset-react": "7.9.4"
   }
 }
