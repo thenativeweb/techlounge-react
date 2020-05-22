@@ -1,7 +1,7 @@
 {
-  "name": "setup-react",
+  "name": "02-react-setup",
   "version": "1.0.0",
-  "description": "Eine Hello-World Applikation mit React",
+  "description": "Eine Hello-World-Applikation mit React",
   "main": "index.js",
   "scripts": {
     "start": "npx servor --reload",
