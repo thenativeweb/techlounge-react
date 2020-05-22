@@ -1,0 +1,7 @@
+{
+  "extends": "es/browser",
+  "globals": {
+    "React": true,
+    "ReactDOM": true
+  }
+}
