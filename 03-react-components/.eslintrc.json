@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "es/browser"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "globals": {
+    "React": true,
+    "ReactDOM": true
+  },
+  "rules": {
+    "class-methods-use-this": "off"
+  }
+}
