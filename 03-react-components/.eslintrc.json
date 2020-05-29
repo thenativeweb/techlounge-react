@@ -13,6 +13,8 @@
     "class-methods-use-this": "off",
     "sort-imports": "off",
     "func-style": "off",
+    "require-unicode-regexp": "off",
+    "prefer-named-capture-group": "off",
     "react/prefer-stateless-function": "off",
     "react/destructuring-assignment": "off"
   }
