@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Message } from './message';
 
 class MyApp extends React.Component {
-  render() {
+  render () {
     return (
       <div>
         <Message headline='Headline 1' text='Das ist die 1. Nachricht' />

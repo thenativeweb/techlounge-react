@@ -2,9 +2,6 @@
   "extends": [
     "es/browser"
   ],
-  "plugins": [
-    "react"
-  ],
   "parserOptions": {
     "sourceType": "module"
   },
@@ -13,6 +10,10 @@
     "ReactDOM": true
   },
   "rules": {
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "sort-imports": "off",
+    "func-style": "off",
+    "react/prefer-stateless-function": "off",
+    "react/destructuring-assignment": "off"
   }
 }
