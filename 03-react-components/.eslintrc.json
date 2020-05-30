@@ -5,17 +5,13 @@
   "parserOptions": {
     "sourceType": "module"
   },
-  "globals": {
-    "React": true,
-    "ReactDOM": true
-  },
   "rules": {
     "class-methods-use-this": "off",
-    "sort-imports": "off",
     "func-style": "off",
-    "require-unicode-regexp": "off",
     "prefer-named-capture-group": "off",
-    "react/prefer-stateless-function": "off",
-    "react/destructuring-assignment": "off"
+    "require-unicode-regexp": "off",
+    "sort-imports": "off",
+    "react/destructuring-assignment": "off",
+    "react/prefer-stateless-function": "off"
   }
 }
