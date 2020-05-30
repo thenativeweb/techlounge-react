@@ -9,6 +9,7 @@
     "class-methods-use-this": "off",
     "func-style": "off",
     "prefer-named-capture-group": "off",
+    "prefer-destructuring": "off",
     "require-unicode-regexp": "off",
     "sort-imports": "off",
     "react/destructuring-assignment": "off",
