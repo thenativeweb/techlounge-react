@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/App.jsx',
+  entry: path.join(__dirname, 'src', 'App.jsx'),
   module: {
     rules: [
       {
@@ -15,12 +15,12 @@ module.exports = {
     extensions: [ '*', '.js', '.jsx' ]
   },
   output: {
-    path: `${__dirname}/dist`,
+    path: path.join(__dirname, 'dist'),
     publicPath: '/',
     filename: 'app.js'
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public/'),
+    contentBase: path.join(__dirname, 'public'),
     publicPath: 'http://localhost:8080/dist/'
   }
 };
