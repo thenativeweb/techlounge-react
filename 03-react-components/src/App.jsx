@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Message } from './message';
+import { Message } from './Message';
 
-class MyApp extends React.Component {
+class App extends React.Component {
   render () {
     return (
       <div>
@@ -15,4 +15,4 @@ class MyApp extends React.Component {
 
 const domTarget = document.querySelector('#my-react-app');
 
-ReactDOM.render(<MyApp />, domTarget);
+ReactDOM.render(<App />, domTarget);
