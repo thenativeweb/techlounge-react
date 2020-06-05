@@ -5,7 +5,7 @@ export function Headline (props) {
 
   return (
     <h1 style={ styles }>
-      {props.content}
+      { props.content }
     </h1>
   );
 }

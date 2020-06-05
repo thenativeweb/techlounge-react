@@ -1,5 +1,5 @@
-import { Headline } from './core-components/Headline';
-import { Paragraph } from './core-components/Paragraph';
+import { Headline } from './core-components/Headline.js';
+import { Paragraph } from './core-components/Paragraph.js';
 
 export class Message extends React.Component {
   render () {
