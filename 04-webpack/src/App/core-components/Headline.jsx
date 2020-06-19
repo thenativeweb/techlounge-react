@@ -1,10 +1,9 @@
-export function Headline (props) {
-  const styles = {
-    color: 'red'
-  };
+import React from 'react';
+import './Headline.css';
 
+export function Headline (props) {
   return (
-    <h1 style={ styles }>
+    <h1 className='headline'>
       { props.content }
     </h1>
   );

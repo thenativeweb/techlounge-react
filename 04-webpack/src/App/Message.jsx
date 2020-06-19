@@ -1,3 +1,4 @@
+import React from 'react';
 import { Headline } from './core-components/Headline';
 import { Paragraph } from './core-components/Paragraph';
 

@@ -1,3 +1,6 @@
+import React from 'react';
+import './Paragraph.css';
+
 export class Paragraph extends React.Component {
   render () {
     return (

@@ -1,10 +1,8 @@
-'use strict';
-
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: path.join(__dirname, 'src', 'index.jsx'),
   module: {
     rules: [
       {
@@ -13,6 +11,16 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.css$/i,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader'
+          }
+        ]
       }
     ]
   },
@@ -21,8 +29,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './public/index.html',
-      filename: './index.html'
+      template: path.join(__dirname, 'src', 'index.html'),
+      filename: 'index.html'
     })
   ]
 };
