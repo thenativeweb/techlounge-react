@@ -2,7 +2,6 @@
   "name": "04-webpack",
   "version": "1.0.0",
   "description": "Kleine Einführung in die Verwendung von Webpack für React-Applikation",
-  "main": "src/index.jsx",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack"
