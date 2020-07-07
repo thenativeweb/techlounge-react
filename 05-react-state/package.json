@@ -1,7 +1,7 @@
 {
   "name": "05-react-state",
   "version": "1.0.0",
-  "description": "Vorstellung von React-State zur dynamisierung einer React-Applikation",
+  "description": "Vorstellung von React-State zum Dynamisieren einer React-Applikation",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack"
