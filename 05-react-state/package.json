@@ -1,7 +1,7 @@
 {
-  "name": "04-webpack",
+  "name": "05-react-state",
   "version": "1.0.0",
-  "description": "Kleine Einführung in die Verwendung von Webpack für React-Applikation",
+  "description": "Vorstellung von React-State zur dynamisierung einer React-Applikation",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack"

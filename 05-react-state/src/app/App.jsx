@@ -6,7 +6,6 @@ const images = [
   {
     src: 'https://images.freeimages.com/images/large-previews/105/100-natural-1384751.jpg',
     alt: 'Ein Tannenwald mit schneebedeckten Bergen im Hintergrund.'
-
   },
   {
     src: 'https://images.freeimages.com/images/large-previews/d24/desert-1393263.jpg',
