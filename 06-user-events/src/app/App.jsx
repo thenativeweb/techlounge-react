@@ -3,6 +3,7 @@ import React from 'react';
 import { Counter } from './Counter';
 import { CounterPure } from './CounterPure';
 import { CounterContainer } from './CounterContainer';
+import { MutabilityErrorExample } from './mutabilityErrorExample/MutabilityErrorExample';
 
 export class App extends React.Component {
   render () {
@@ -16,6 +17,9 @@ export class App extends React.Component {
         <hr />
         <h1>State-Uplifted Counter</h1>
         <CounterContainer />
+        <hr />
+        <h1>Problem mit Mutability</h1>
+        <MutabilityErrorExample />
       </div>
     );
   }
