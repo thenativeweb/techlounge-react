@@ -8,7 +8,7 @@ export class CounterStateless extends React.PureComponent {
   render () {
     return (
       <div>
-        <h3>Counter Pure is: {this.props.counterValue}</h3>
+        <h3>Counter Stateless is: {this.props.counterValue}</h3>
         <button onClick={ () => this.handleClick() }>Increment</button>
       </div>
     );

@@ -1,7 +1,7 @@
 {
   "name": "06-user-events",
   "version": "1.0.0",
-  "description": "Vorstellung von React-State zum Dynamisieren einer React-Applikation",
+  "description": "Beispiel-Code für die Verarbeitung von User-Events, State-Uplifting und Pure-Components mit Immutability sowie die Gefahren von Mutation.",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack"
