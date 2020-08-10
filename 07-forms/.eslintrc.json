@@ -8,6 +8,7 @@
   "rules": {
     "class-methods-use-this": "off",
     "func-style": "off",
+    "no-console": "off",
     "no-param-reassign": "off",
     "no-plusplus": "off",
     "prefer-destructuring": "off",

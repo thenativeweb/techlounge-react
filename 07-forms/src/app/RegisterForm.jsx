@@ -4,11 +4,14 @@ import { TShirtSelect } from './formElements/TShirtSelect';
 import { LunchCheckbox } from './formElements/LunchCheckbox';
 
 const emptyForm = {
+  formSubmitted: false,
   formComplete: false,
   name: '',
   tShirtSize: '',
   lunch: false
 };
+
+const isFormComplete = form => form.name;
 
 export class RegisterForm extends React.Component {
   constructor (props) {
@@ -24,15 +27,23 @@ export class RegisterForm extends React.Component {
     console.log(`Sending to an API: ${JSON.stringify(this.state)}`);
 
     this.setState({
-      formComplete: true
+      formSubmitted: true
     });
   }
 
   handleChange (event) {
-    const value = event.target.name === 'lunch' ? event.target.checked : event.target.value;
+    const formTargetName = event.target.name;
+    const value = formTargetName === 'lunch' ? event.target.checked : event.target.value;
 
-    this.setState({
-      [event.target.name]: value
+    this.setState(previousState => {
+      const newState = {
+        ...previousState,
+        [formTargetName]: value
+      };
+
+      newState.formComplete = isFormComplete(newState);
+
+      return newState;
     });
   }
 
@@ -41,7 +52,7 @@ export class RegisterForm extends React.Component {
   }
 
   render () {
-    if (this.state.formComplete) {
+    if (this.state.formSubmitted) {
       return (
         <div>
           <p>Form erfolgreich versandt!</p>
@@ -57,7 +68,7 @@ export class RegisterForm extends React.Component {
         <NameInput value={ this.state.name } onChange={ this.handleChange } />
         <TShirtSelect value={ this.state.tShirtSize } onChange={ this.handleChange } />
         <LunchCheckbox value={ this.state.lunch } onChange={ this.handleChange } />
-        <button onClick={ this.handleSubmit }>Anmelden</button>
+        <button onClick={ this.handleSubmit } disabled={ !this.state.formComplete }>Anmelden</button>
       </form>
     );
   }
