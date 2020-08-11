@@ -1,10 +1,10 @@
+/* eslint-disable react/jsx-child-element-spacing */
 import React from 'react';
 
 export class TShirtSelect extends React.Component {
   render () {
     return (
-      <label>
-        T-Shirt Größe:
+      <label> T-Shirt Größe:
         <select name='tShirtSize' value={ this.props.tShirtSize } onChange={ this.props.onChange }>
           <option value='w-s'>W-S</option>
           <option value='w-m'>W-M</option>
