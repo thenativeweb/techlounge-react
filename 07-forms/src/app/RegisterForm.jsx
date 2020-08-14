@@ -55,7 +55,7 @@ export class RegisterForm extends React.Component {
     if (this.state.formSubmitted) {
       return (
         <div>
-          <p>Form erfolgreich versandt!</p>
+          <p>Formular erfolgreich versandt!</p>
           <button onClick={ this.handleReset }>
             Neues Formular ausfüllen
           </button>
