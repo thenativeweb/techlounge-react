@@ -5,7 +5,7 @@ export class App extends React.Component {
   render () {
     return (
       <div>
-        <h1>Registrierung React-Workshop.</h1>
+        <h1>Registrierung React-Workshop</h1>
         <RegisterForm />
       </div>
     );
