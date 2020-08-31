@@ -14,7 +14,7 @@ export class AttendeeList extends React.Component {
         <thead>
           <tr>
             <th>Name</th>
-            <th>T-Shirt Größe</th>
+            <th>T-Shirt-Größe</th>
             <th>Mittagessen</th>
           </tr>
         </thead>
