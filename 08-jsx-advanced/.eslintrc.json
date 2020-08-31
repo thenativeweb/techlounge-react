@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "es/browser"
+  ],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "class-methods-use-this": "off",
+    "func-style": "off",
+    "no-console": "off",
+    "no-param-reassign": "off",
+    "no-plusplus": "off",
+    "prefer-destructuring": "off",
+    "prefer-named-capture-group": "off",
+    "require-unicode-regexp": "off",
+    "sort-imports": "off",
+    "react/destructuring-assignment": "off",
+    "react/prefer-stateless-function": "off"
+  }
+}
