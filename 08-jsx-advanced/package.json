@@ -1,7 +1,7 @@
 {
   "name": "08-jsx-advanced",
   "version": "1.0.0",
-  "description": "Code-Beispiel für fortgeschrittene JSX Praktiken.",
+  "description": "Code-Beispiel für fortgeschrittene JSX-Praktiken.",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack"
