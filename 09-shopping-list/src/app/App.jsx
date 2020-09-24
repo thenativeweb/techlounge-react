@@ -3,8 +3,7 @@ import React from 'react';
 import { RecipeList } from './RecipeList/RecipeList';
 import { RecipeForm } from './RecipeForm/RecipeForm';
 import { IngridientsList } from '../components/IngridientsList';
-import { Tab } from '../components/tabs/Tab';
-import { TabController } from '../components/tabs/TabController';
+import { Tab, TabController } from '../components/tabs';
 
 const mockRecepies = [
   {
