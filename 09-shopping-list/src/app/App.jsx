@@ -13,18 +13,28 @@ const mockRecepies = [
     ingridients: [
       {
         name: 'Zucker',
-        amount: 200,
+        amount: 100,
         unit: 'Gramm'
       },
       {
-        name: 'Apfel',
-        amount: 4,
+        name: 'Eier',
+        amount: 1,
         unit: 'Stück'
       },
       {
-        name: 'Mehl',
-        amount: 400,
-        unit: 'Gramm'
+        name: 'Vanillinzucker',
+        amount: 1,
+        unit: 'Stück'
+      },
+      {
+        name: 'Äpfel',
+        amount: 6,
+        unit: 'Stück'
+      },
+      {
+        name: 'Puddingpulver',
+        amount: 1,
+        unit: 'Stück'
       }
     ]
   },
@@ -35,16 +45,16 @@ const mockRecepies = [
     ingridients: [
       {
         name: 'Zucker',
-        amount: 300,
+        amount: 50,
         unit: 'Gramm'
       },
       {
-        name: 'Milch',
-        amont: 0.5,
+        name: 'Sahne',
+        amount: 0.2,
         unit: 'Liter'
       },
       {
-        name: 'Pudding',
+        name: 'Vanilleschote',
         amount: 1,
         unit: 'Stück'
       }
