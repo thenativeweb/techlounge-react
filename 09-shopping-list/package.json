@@ -4,11 +4,13 @@
   "description": "Ein Einkauflisten-Rechner als Hands-On Applikations-Beispiel.",
   "scripts": {
     "start": "webpack-dev-server",
+    "start-backend": "json-server --watch mockBackend/mockRecipes.json",
     "build": "webpack"
   },
   "author": "David Losert",
   "license": "MIT",
   "dependencies": {
+    "json-server": "0.16.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },

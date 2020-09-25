@@ -4,148 +4,69 @@ import { RecipeList } from './RecipeList/RecipeList';
 import { RecipeForm } from './RecipeForm/RecipeForm';
 import { IngridientsList } from '../components/IngridientsList';
 import { Tab, TabController } from '../components/tabs';
-
-const mockRecepies = [
-  {
-    id: 1,
-    name: 'Apfelkuchen',
-    showEditForm: false,
-    ingridients: [
-      {
-        name: 'Zucker',
-        amount: 100,
-        unit: 'Gramm'
-      },
-      {
-        name: 'Eier',
-        amount: 1,
-        unit: 'Stück'
-      },
-      {
-        name: 'Vanillinzucker',
-        amount: 1,
-        unit: 'Stück'
-      },
-      {
-        name: 'Äpfel',
-        amount: 6,
-        unit: 'Stück'
-      },
-      {
-        name: 'Puddingpulver',
-        amount: 1,
-        unit: 'Stück'
-      }
-    ]
-  },
-  {
-    id: 2,
-    name: 'Pudding',
-    showEditForm: false,
-    ingridients: [
-      {
-        name: 'Zucker',
-        amount: 50,
-        unit: 'Gramm'
-      },
-      {
-        name: 'Sahne',
-        amount: 0.2,
-        unit: 'Liter'
-      },
-      {
-        name: 'Vanilleschote',
-        amount: 1,
-        unit: 'Stück'
-      }
-    ]
-  }
-];
+import { addRecipe, toggleEditForm, updateRecipe, sumRecipeIngridients } from './recipeStateService';
 
 export class App extends React.Component {
   constructor (props) {
     super(props);
 
     this.state = {
-      recipes: mockRecepies
+      loading: true,
+      recipes: []
     };
 
-    this.handleEnableEdit = this.handleEnableEdit.bind(this);
+    this.handleToggleEdit = this.handleToggleEdit.bind(this);
     this.handleRecipeEdit = this.handleRecipeEdit.bind(this);
     this.handleRecipeSave = this.handleRecipeSave.bind(this);
   }
 
-  sumComponents () {
-    return this.state.recipes.
-      reduce((list, recipe) => [ ...list, ...recipe.ingridients ], []).
-      reduce((list, ingridient) => {
-        const existingItem = list.find(searchItem => searchItem.name === ingridient.name);
-
-        if (existingItem) {
-          existingItem.amount += ingridient.amount;
-        } else {
-          list.push({ ...ingridient });
-        }
-
-        return list;
-      }, []);
+  componentDidMount () {
+    fetch('http://localhost:3000/recipes').
+      then(response => response.json()).
+      then(recipes => {
+        this.setState({
+          loading: false,
+          recipes
+        });
+      });
   }
 
   handleRecipeSave (newRecipe) {
-    this.setState(currentState => ({ recipes: [
-      ...currentState.recipes,
-      {
-        id: currentState.recipes.length + 1,
-        showEditForm: false,
-        ...newRecipe
-      }
-    ]}));
-  }
-
-  handleEnableEdit (changedRecipe) {
     this.setState(currentState => ({
       ...currentState,
-      recipes: currentState.recipes.map(recipe => {
-        if (recipe.id === changedRecipe.id) {
-          return {
-            ...recipe,
-            showEditForm: true
-          };
-        }
+      recipes: addRecipe(currentState.recipes, newRecipe)
+    }));
+  }
 
-        return recipe;
-      })
+  handleToggleEdit (recipe) {
+    this.setState(currentState => ({
+      ...currentState,
+      recipes: toggleEditForm(currentState.recipes, recipe)
     }));
   }
 
   handleRecipeEdit (changedRecipe) {
     this.setState(currentState => ({
       ...currentState,
-      recipes: currentState.recipes.map(recipe => {
-        if (recipe.id === changedRecipe.id) {
-          return {
-            ...recipe,
-            ...changedRecipe,
-            showEditForm: false
-          };
-        }
-
-        return recipe;
-      })
+      recipes: updateRecipe(currentState.recipes, changedRecipe)
     }));
   }
 
   render () {
-    const summedList = this.sumComponents();
+    if (this.state.loading) {
+      return (
+        <main>Lade Rezepte...</main>
+      );
+    }
 
     return (
       <main>
         <TabController>
           <Tab headline='Einkaufliste'>
-            <IngridientsList items={ summedList } />
+            <IngridientsList items={ sumRecipeIngridients(this.state.recipes) } />
           </Tab>
           <Tab headline='Rezepte'>
-            <RecipeList recipes={ this.state.recipes } onEnableEdit={ this.handleEnableEdit } onSaveChanges={ this.handleRecipeEdit } />
+            <RecipeList recipes={ this.state.recipes } onToggleEdit={ this.handleToggleEdit } onSaveChanges={ this.handleRecipeEdit } />
           </Tab>
           <Tab headline='Neues Rezept'>
             <RecipeForm onSave={ this.handleRecipeSave } />

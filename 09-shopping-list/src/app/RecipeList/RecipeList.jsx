@@ -11,7 +11,7 @@ export class RecipeList extends React.Component {
 
       return (
         <li key={ recipe.id }>
-          { recipe.name } (<a onClick={ () => this.props.onEnableEdit(recipe) }>Bearbeiten</a>)
+          { recipe.name } (<a onClick={ () => this.props.onToggleEdit(recipe) }>Bearbeiten</a>)
           { subContent }
         </li>
       );

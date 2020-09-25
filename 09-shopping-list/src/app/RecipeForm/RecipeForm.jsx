@@ -33,10 +33,16 @@ export class RecipeForm extends React.Component {
     }
   }
 
-  handleNameChange (event) {
-    this.setState({
-      name: event.target.value
-    });
+  handleAddIngridient () {
+    this.setState(currentState => (
+      {
+        ...currentState,
+        ingridients: [
+          ...currentState.ingridients,
+          createEmptyIngridient()
+        ]
+      }
+    ));
   }
 
   handleIngridientChange (event, ingridientName) {
@@ -57,16 +63,10 @@ export class RecipeForm extends React.Component {
     }));
   }
 
-  handleAddIngridient () {
-    this.setState(currentState => (
-      {
-        ...currentState,
-        ingridients: [
-          ...currentState.ingridients,
-          createEmptyIngridient()
-        ]
-      }
-    ));
+  handleNameChange (event) {
+    this.setState({
+      name: event.target.value
+    });
   }
 
   handleRecipeSave () {
