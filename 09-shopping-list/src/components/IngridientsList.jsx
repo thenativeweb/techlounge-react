@@ -1,4 +1,5 @@
 import React from 'react';
+
 export class IngridientsList extends React.Component {
   render () {
     const listElements = this.props.items.map(item => (
