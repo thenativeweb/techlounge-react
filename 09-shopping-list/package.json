@@ -1,7 +1,7 @@
 {
   "name": "09-shopping-list",
   "version": "1.0.0",
-  "description": "Ein Einkauflisten-Rechner als Hands-On Applikations-Beispiel.",
+  "description": "Ein Einkauflisten-Rechner als Hands-On-Applikations-Beispiel.",
   "scripts": {
     "start": "webpack-dev-server",
     "start-backend": "json-server --watch mockBackend/mockRecipes.json",
