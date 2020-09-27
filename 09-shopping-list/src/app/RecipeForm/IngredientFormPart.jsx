@@ -1,30 +1,30 @@
 import { NumericalInput } from '../../components/NumericalInput';
 import React from 'react';
 
-export class IngridientFormPart extends React.PureComponent {
+export class IngredientFormPart extends React.PureComponent {
   render () {
-    const { ingridient, onChange } = this.props;
+    const { ingredient, onChange } = this.props;
 
     return (
-      <div className='ingridient-form'>
+      <div className='ingredient-form'>
         <label> Zutat: <input
           type='text'
-          value={ ingridient.name }
+          value={ ingredient.name }
           name='name'
-          onChange={ event => onChange(event, ingridient.name) }
+          onChange={ event => onChange(event, ingredient.name) }
                        />
         </label>
         <label> Menge: <NumericalInput
-          value={ ingridient.amount }
+          value={ ingredient.amount }
           name='amount'
-          onChange={ event => onChange(event, ingridient.name) }
+          onChange={ event => onChange(event, ingredient.name) }
                        />
         </label>
         <label>
           <select
             name='unit'
-            value={ ingridient.unit }
-            onChange={ event => onChange(event, ingridient.name) }
+            value={ ingredient.unit }
+            onChange={ event => onChange(event, ingredient.name) }
           >
             <option value='Stück'>Stück</option>
             <option value='Gramm'>Gramm</option>

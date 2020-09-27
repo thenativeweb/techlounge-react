@@ -1,5 +1,5 @@
 import React from 'react';
-import { IngridientsList } from '../../components/IngridientsList';
+import { IngredientsList } from '../../components/IngredientsList';
 import { RecipeForm } from '../RecipeForm/RecipeForm';
 
 export class RecipeList extends React.Component {
@@ -7,7 +7,7 @@ export class RecipeList extends React.Component {
     const listComponents = this.props.recipes.map(recipe => {
       const subContent = recipe.showEditForm ?
         <RecipeForm recipe={ recipe } onSave={ this.props.onSaveChanges } /> :
-        <IngridientsList items={ recipe.ingridients } />;
+        <IngredientsList items={ recipe.ingredients } />;
 
       return (
         <li key={ recipe.id }>

@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Apfelkuchen",
       "showEditForm": false,
-      "ingridients": [
+      "ingredients": [
         {
           "name": "Zucker",
           "amount": 100,
@@ -36,7 +36,7 @@
       "id": 2,
       "name": "Pudding",
       "showEditForm": false,
-      "ingridients": [
+      "ingredients": [
         {
           "name": "Zucker",
           "amount": 50,

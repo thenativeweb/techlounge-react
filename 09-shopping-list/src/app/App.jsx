@@ -2,9 +2,9 @@ import React from 'react';
 
 import { RecipeList } from './RecipeList/RecipeList';
 import { RecipeForm } from './RecipeForm/RecipeForm';
-import { IngridientsList } from '../components/IngridientsList';
+import { IngredientsList } from '../components/IngredientsList';
 import { Tab, TabController } from '../components/tabs';
-import { addRecipe, toggleEditForm, updateRecipe, sumRecipeIngridients } from './recipeStateService';
+import { addRecipe, toggleEditForm, updateRecipe, sumRecipeIngredients } from './recipeStateService';
 
 export class App extends React.Component {
   constructor (props) {
@@ -63,7 +63,7 @@ export class App extends React.Component {
       <main>
         <TabController>
           <Tab headline='Einkaufliste'>
-            <IngridientsList items={ sumRecipeIngridients(this.state.recipes) } />
+            <IngredientsList items={ sumRecipeIngredients(this.state.recipes) } />
           </Tab>
           <Tab headline='Rezepte'>
             <RecipeList recipes={ this.state.recipes } onToggleEdit={ this.handleToggleEdit } onSaveChanges={ this.handleRecipeEdit } />

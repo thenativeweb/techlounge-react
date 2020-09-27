@@ -36,15 +36,15 @@ export const updateRecipe = function (recipes, changedRecipe) {
   });
 };
 
-export const sumRecipeIngridients = function (recipes) {
-  return recipes.reduce((list, recipe) => [ ...list, ...recipe.ingridients ], []).
-    reduce((list, ingridient) => {
-      const existingItem = list.find(searchItem => searchItem.name === ingridient.name);
+export const sumRecipeIngredients = function (recipes) {
+  return recipes.reduce((list, recipe) => [ ...list, ...recipe.ingredients ], []).
+    reduce((list, ingredient) => {
+      const existingItem = list.find(searchItem => searchItem.name === ingredient.name);
 
       if (existingItem) {
-        existingItem.amount += ingridient.amount;
+        existingItem.amount += ingredient.amount;
       } else {
-        list.push({ ...ingridient });
+        list.push({ ...ingredient });
       }
 
       return list;

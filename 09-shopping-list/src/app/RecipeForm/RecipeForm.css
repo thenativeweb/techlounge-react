@@ -1,10 +1,10 @@
-.ingridient-form label {
+.ingredient-form label {
   display: inline-block;
   clear: left;
   text-align: right;
   margin-right: 15px;
 }
 
-.ingridient-form input {
+.ingredient-form input {
   display: inline-block;
 }
