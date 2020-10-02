@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class UnitInput extends Reacts.Component {
+export class UnitInput extends React.Component {
   render () {
     return (
       <select
