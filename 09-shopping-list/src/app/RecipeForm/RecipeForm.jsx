@@ -89,7 +89,6 @@ export class RecipeForm extends React.Component {
       <IngredientFormPart
         key={ `ingredient-${index}` }
         ingredient={ ingredient }
-        index={ index }
         onChange={ this.handleIngredientChange }
       />
     ));
