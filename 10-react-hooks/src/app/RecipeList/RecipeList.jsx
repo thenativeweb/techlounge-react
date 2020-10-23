@@ -2,15 +2,15 @@ import React from 'react';
 import { IngredientsList } from '../../components/IngredientsList';
 import { RecipeForm } from '../RecipeForm/RecipeForm';
 
-export const RecipeList = props => {
-  const listComponents = props.recipes.map(recipe => {
+export const RecipeList = ({ recipes, onSaveChanges, onToggleEdit }) => {
+  const listComponents = recipes.map(recipe => {
     const subContent = recipe.showEditForm ?
-      <RecipeForm recipe={ recipe } onSave={ props.onSaveChanges } /> :
+      <RecipeForm recipe={ recipe } onSave={ onSaveChanges } /> :
       <IngredientsList items={ recipe.ingredients } />;
 
     return (
       <li key={ recipe.id }>
-        { recipe.name } (<a onClick={ () => props.onToggleEdit(recipe) }>Bearbeiten</a>)
+        { recipe.name } (<a onClick={ () => onToggleEdit(recipe) }>Bearbeiten</a>)
         { subContent }
       </li>
     );

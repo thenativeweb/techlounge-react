@@ -1,12 +1,8 @@
 import React from 'react';
 
-export class Tab extends React.Component {
-  render () {
-    return (
-      <React.Fragment>
-        <h1>{this.props.headline}</h1>
-        {this.props.children}
-      </React.Fragment>
-    );
-  }
-}
+export const Tab = ({ headline, children }) => (
+  <React.Fragment>
+    <h1>{headline}</h1>
+    {children}
+  </React.Fragment>
+);
