@@ -17,7 +17,7 @@ export const App = () => {
         setIsLoading(false);
         setRecipes(loadedRecipes);
       });
-  }, [ false ]);
+  }, []);
 
   const changeRecipeStateWith = recipeStateServiceFunction => recipe => setRecipes(recipeStateServiceFunction(recipes, recipe));
 
