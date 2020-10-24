@@ -5,6 +5,7 @@ import { RecipeForm } from './RecipeForm/RecipeForm';
 import { IngredientsList } from '../components/IngredientsList';
 import { Tab, TabController } from '../components/tabs';
 import { addRecipe, toggleEditForm, updateRecipe, sumRecipeIngredients } from './recipeStateService';
+import { Watch } from './Watch';
 
 export const App = () => {
   const [ recipes, setRecipes ] = useState([]);
@@ -29,6 +30,7 @@ export const App = () => {
 
   return (
     <main>
+      <Watch />
       <TabController>
         <Tab headline='Einkaufliste'>
           <IngredientsList items={ sumRecipeIngredients(recipes) } />
