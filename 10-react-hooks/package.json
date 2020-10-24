@@ -1,7 +1,7 @@
 {
-  "name": "09-shopping-list",
+  "name": "10-react-hooks",
   "version": "1.0.0",
-  "description": "Ein Einkaufslisten-Rechner als Hands-On-Applikations-Beispiel.",
+  "description": "Der Einkaufslistenrechner aus Folge 9 - mit funktionalen Komponente und React Hooks.",
   "scripts": {
     "start": "webpack-dev-server",
     "start-backend": "json-server --watch mockBackend/mockRecipes.json",
