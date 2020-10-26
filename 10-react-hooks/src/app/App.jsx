@@ -32,7 +32,7 @@ export const App = () => {
     <main>
       <Watch />
       <TabController>
-        <Tab headline='Einkaufliste'>
+        <Tab headline='Einkaufsliste'>
           <IngredientsList items={ sumRecipeIngredients(recipes) } />
         </Tab>
         <Tab headline='Rezepte'>
