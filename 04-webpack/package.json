@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Kleine Einführung in die Verwendung von Webpack für React-Applikation",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack serve",
     "build": "webpack"
   },
   "author": "David Losert",
