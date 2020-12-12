@@ -16,7 +16,7 @@ export const App = () => {
     fetch('http://localhost:3000/recipes').
       then(response => response.json()).
       catch(error_ => {
-        console.error(`Fehler beim laden der API. Wurde diese mit 'npm run start-backend' gestartet?`, error_);
+        console.error(`Fehler beim Laden der API. Wurde diese mit 'npm run start-backend' gestartet?`, error_);
         setError(error_);
       }).
       then(loadedRecipes => {
