@@ -1,7 +1,7 @@
 {
   "name": "12-react-debugging",
   "version": "1.0.0",
-  "description": "Einige Fehler haben sich im Einkaufslistenrechner versteckt. Nutze die gängigen Debugging-Tools um sie zu finden und zu fixen.",
+  "description": "Einige Fehler haben sich im Einkaufslistenrechner versteckt. Nutze die gängigen Debugging-Tools, um sie zu finden und zu fixen.",
   "scripts": {
     "start": "webpack-dev-server",
     "start-backend": "json-server --watch mockBackend/mockRecipes.json",
