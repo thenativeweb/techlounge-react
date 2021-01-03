@@ -2,7 +2,7 @@ import React from 'react';
 
 const allowedInputRegex = /^\d*\.?\d*$/;
 
-const causeForSlowRender = () => new Array(30000000).fill('Unecessary command');
+const causeForSlowRender = () => new Array(30000000).fill('Unnecessary command');
 
 export const NumericalInput = ({ name, value, onChange }) => {
   const handleInput = event => {
