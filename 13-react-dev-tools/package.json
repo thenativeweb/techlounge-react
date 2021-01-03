@@ -1,7 +1,7 @@
 {
   "name": "13-react-developer-tools",
   "version": "1.0.0",
-  "description": "Der Einkaufslistenrechner hat Performance-Probleme. Nutze den Profiler-Tab aus den React-Dev-Tools um diese aufzuspüren und zu beseitigen. ",
+  "description": "Der Einkaufslistenrechner hat Performance-Probleme. Nutze den Profiler-Tab aus den React-Dev-Tools, um diese aufzuspüren und zu beseitigen. ",
   "scripts": {
     "start": "webpack-dev-server",
     "start-backend": "json-server --watch mockBackend/mockRecipes.json",
