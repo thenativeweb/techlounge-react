@@ -7,7 +7,7 @@ import { Tab, TabController } from '../components/tabs';
 import { addRecipe, toggleEditForm, updateRecipe, sumRecipeIngredients } from './recipeStateService';
 import { Watch } from './Watch';
 
-const causeForSlowRender = () => new Array(100000000).fill('Unecessary command');
+const causeForSlowRender = () => new Array(100000000).fill('Unnecessary command');
 
 export const App = () => {
   const [ recipes, setRecipes ] = useState([]);
