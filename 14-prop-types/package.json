@@ -1,7 +1,7 @@
 {
   "name": "14-prop-types",
   "version": "1.0.0",
-  "description": "Mit prop-types könne wir einen grad an Typsicherheit in die props unserer Applikation bringen.",
+  "description": "Mit prop-types können wir einen Grad an Typsicherheit in die props unserer Applikation bringen.",
   "scripts": {
     "start": "webpack-dev-server",
     "start-backend": "json-server --watch mockBackend/mockRecipes.json",
