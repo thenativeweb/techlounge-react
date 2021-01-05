@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { UnitType } from '../types/UnitType';
 
 const UnitInput = ({ value, onChange }) => (
   <select
@@ -14,7 +15,8 @@ const UnitInput = ({ value, onChange }) => (
 );
 
 UnitInput.propTypes = {
-  value: PropTypes.oneOf([ 'Stück', 'Gramm', 'Liter' ]).isRequired
+  value: UnitType.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 export { UnitInput };

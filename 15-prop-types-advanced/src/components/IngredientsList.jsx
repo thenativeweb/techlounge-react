@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { IngredientType } from '../types/IngredientType';
 
 const IngredientsList = ({ items }) => {
   const listElements = items.map(item => (
@@ -14,7 +15,7 @@ const IngredientsList = ({ items }) => {
 };
 
 IngredientsList.propTypes = {
-  items: PropTypes.array.isRequired
+  items: PropTypes.arrayOf(IngredientType).isRequired
 };
 
 export { IngredientsList };

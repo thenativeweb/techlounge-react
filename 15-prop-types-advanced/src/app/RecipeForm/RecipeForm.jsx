@@ -1,7 +1,8 @@
 import { IngredientFormPart } from './IngredientFormPart';
-import './RecipeForm.css';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { RecipeType } from '../../types/RecipeTypes';
+import './RecipeForm.css';
 
 const createEmptyIngredient = () => ({
   name: '',
@@ -86,7 +87,7 @@ const RecipeForm = ({ recipe = emptyState, onSave }) => {
 
 RecipeForm.propTypes = {
   onSave: PropTypes.func.isRequired,
-  recipe: PropTypes.object
+  recipe: RecipeType
 };
 
 export { RecipeForm };
