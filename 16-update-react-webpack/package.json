@@ -1,0 +1,29 @@
+{
+  "name": "10-react-hooks",
+  "version": "1.0.0",
+  "description": "Der Einkaufslistenrechner aus Folge 9 - mit funktionalen Komponente und React Hooks.",
+  "scripts": {
+    "start": "webpack serve",
+    "start-backend": "json-server --watch mockBackend/mockRecipes.json",
+    "build": "webpack"
+  },
+  "author": "David Losert",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "0.16.3",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.12.10",
+    "@babel/core": "7.12.10",
+    "@babel/preset-react": "7.12.10",
+    "babel-loader": "8.2.2",
+    "css-loader": "5.0.1",
+    "html-webpack-plugin": "4.5.1",
+    "style-loader": "2.0.0",
+    "webpack": "5.11.1",
+    "webpack-cli": "4.3.1",
+    "webpack-dev-server": "3.11.1"
+  }
+}
