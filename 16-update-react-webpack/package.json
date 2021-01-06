@@ -1,7 +1,7 @@
 {
   "name": "16-update-react-webpack",
   "version": "1.0.0",
-  "description": "Der Einkaufslistenrechner aus Folge 10 - aber mit neuer React und Webpack Version",
+  "description": "Der Einkaufslistenrechner aus Folge 10 - aber mit neuer React- und Webpack-Version",
   "scripts": {
     "start": "concurrently \"npm:start-frontend\" \"npm:start-backend\"",
     "start-frontend": "webpack serve",
