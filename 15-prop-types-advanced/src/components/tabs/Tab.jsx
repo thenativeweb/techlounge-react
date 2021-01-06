@@ -9,7 +9,10 @@ const Tab = ({ headline, children }) => (
 );
 
 Tab.propTypes = {
-  children: PropTypes.any.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
   headline: PropTypes.string.isRequired
 };
 

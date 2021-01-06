@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 const TabController = ({ children }) => {
@@ -32,7 +31,11 @@ const TabController = ({ children }) => {
 };
 
 TabController.propTypes = {
-  children: PropTypes.any.isRequired
+  children (props, propName, componentName) {
+    if (props.children.some(element => element.type.name !== 'Tab')) {
+      throw new Error(`${componentName} can only have Children of type 'Tab'.`);
+    }
+  }
 };
 
 export { TabController };

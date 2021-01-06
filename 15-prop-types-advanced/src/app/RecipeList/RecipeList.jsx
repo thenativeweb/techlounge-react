@@ -1,7 +1,8 @@
 import { IngredientsList } from '../../components/IngredientsList';
 import PropTypes from 'prop-types';
-import { RecipeForm } from '../RecipeForm/RecipeForm';
 import React from 'react';
+import { RecipeForm } from '../RecipeForm/RecipeForm';
+import { RecipeType } from '../../types/RecipeTypes';
 
 const RecipeList = ({ recipes, onSaveChanges, onToggleEdit }) => {
   const listComponents = recipes.map(recipe => {
@@ -25,7 +26,7 @@ const RecipeList = ({ recipes, onSaveChanges, onToggleEdit }) => {
 };
 
 RecipeList.propTypes = {
-  recipes: PropTypes.array.isRequired,
+  recipes: PropTypes.arrayOf(RecipeType).isRequired,
   onSaveChanges: PropTypes.func.isRequired,
   onToggleEdit: PropTypes.func.isRequired
 };

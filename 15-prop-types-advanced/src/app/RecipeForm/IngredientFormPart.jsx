@@ -1,4 +1,5 @@
 import { NumericalInput } from '../../components/NumericalInput';
+import { IngredientType } from '../../types/IngredientType';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -32,7 +33,7 @@ const IngredientFormPart = ({ ingredient, onChange }) => (
 );
 
 IngredientFormPart.propTypes = {
-  ingredient: PropTypes.object.isRequired,
+  ingredient: IngredientType.isRequired,
   onChange: PropTypes.func.isRequired
 };
 

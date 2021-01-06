@@ -2,9 +2,9 @@ export const addRecipe = function (recipes, newRecipe) {
   return [
     ...recipes,
     {
-      id: recipes.length + 1,
+      ...newRecipe,
       showEditForm: false,
-      ...newRecipe
+      id: recipes.length + 1
     }
   ];
 };
