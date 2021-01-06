@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Der Einkaufslistenrechner aus Folge 9 - mit funktionalen Komponente und React Hooks.",
   "scripts": {
-    "start": "webpack serve",
+    "start": "concurrently \"npm:start-frontend\" \"npm:start-backend\"",
+    "start-frontend": "webpack serve",
     "start-backend": "json-server --watch mockBackend/mockRecipes.json",
     "build": "webpack"
   },
@@ -19,6 +20,7 @@
     "@babel/core": "7.12.10",
     "@babel/preset-react": "7.12.10",
     "babel-loader": "8.2.2",
+    "concurrently": "5.3.0",
     "css-loader": "5.0.1",
     "html-webpack-plugin": "4.5.1",
     "style-loader": "2.0.0",
