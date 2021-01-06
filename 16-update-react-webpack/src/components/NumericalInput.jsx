@@ -1,5 +1,3 @@
-import React from 'react';
-
 const allowedInputRegex = /^\d*\.?\d*$/;
 
 export const NumericalInput = ({ name, value, onChange }) => {

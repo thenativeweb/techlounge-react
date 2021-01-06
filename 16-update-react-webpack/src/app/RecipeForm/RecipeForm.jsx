@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { IngredientFormPart } from './IngredientFormPart';
 import './RecipeForm.css';
 
@@ -28,10 +28,10 @@ export const RecipeForm = ({ recipe = emptyState, onSave }) => {
   const handleNameChange = event => setRecipeName(event.target.value);
 
   const handleIngredientChange = (event, ingredientName) => {
-    const { value, name } = event.target;
-
     setIngredients(currentIngridients =>
       currentIngridients.map(ingredient => {
+        const { value, name } = event.target;
+
         if (ingredient.name === ingredientName) {
           return {
             ...ingredient,

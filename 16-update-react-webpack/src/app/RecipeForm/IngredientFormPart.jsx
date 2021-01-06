@@ -1,5 +1,4 @@
 import { NumericalInput } from '../../components/NumericalInput';
-import React from 'react';
 
 export const IngredientFormPart = ({ ingredient, onChange }) => (
   <div className='ingredient-form'>

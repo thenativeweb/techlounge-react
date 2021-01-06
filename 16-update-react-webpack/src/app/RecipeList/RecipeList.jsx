@@ -1,4 +1,3 @@
-import React from 'react';
 import { IngredientsList } from '../../components/IngredientsList';
 import { RecipeForm } from '../RecipeForm/RecipeForm';
 
