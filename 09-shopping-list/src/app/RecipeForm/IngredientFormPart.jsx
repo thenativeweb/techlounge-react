@@ -1,5 +1,6 @@
 import { NumericalInput } from '../../components/NumericalInput';
 import React from 'react';
+import { UnitInput } from '../../components/UnitInput';
 
 export class IngredientFormPart extends React.PureComponent {
   render () {
@@ -21,15 +22,10 @@ export class IngredientFormPart extends React.PureComponent {
                        />
         </label>
         <label>
-          <select
-            name='unit'
+          <UnitInput
             value={ ingredient.unit }
             onChange={ event => onChange(event, ingredient.name) }
-          >
-            <option value='Stück'>Stück</option>
-            <option value='Gramm'>Gramm</option>
-            <option value='Liter'>Liter</option>
-          </select>
+          />
         </label>
       </div>
     );
