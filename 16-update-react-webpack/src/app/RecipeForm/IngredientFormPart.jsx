@@ -1,4 +1,5 @@
 import { NumericalInput } from '../../components/NumericalInput';
+import { UnitInput } from '../../components/UnitInput';
 
 export const IngredientFormPart = ({ ingredient, onChange }) => (
   <div className='ingredient-form'>
@@ -16,15 +17,10 @@ export const IngredientFormPart = ({ ingredient, onChange }) => (
                    />
     </label>
     <label>
-      <select
-        name='unit'
+      <UnitInput
         value={ ingredient.unit }
         onChange={ event => onChange(event, ingredient.name) }
-      >
-        <option value='Stück'>Stück</option>
-        <option value='Gramm'>Gramm</option>
-        <option value='Liter'>Liter</option>
-      </select>
+      />
     </label>
   </div>
 );
