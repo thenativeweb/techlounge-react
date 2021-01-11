@@ -4,7 +4,7 @@
   ],
   "parserOptions": {
     "sourceType": "module",
-    "project": [ "./17-typescript/tsconfig.json" ]
+    "project": [ "./17-install-typescript/tsconfig.json" ]
   },
   "rules": {
     "class-methods-use-this": "off",

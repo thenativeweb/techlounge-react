@@ -3,6 +3,7 @@
     "rootDir": "src",
     "outDir": "./dist/",
     "noImplicitAny": false,
+    "sourceMap": true,
     "module": "CommonJS",
     "target": "ES2019",
     "jsx": "react-jsxdev",

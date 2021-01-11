@@ -1,7 +1,7 @@
 {
-  "name": "16-update-react-webpack",
+  "name": "17-install-typescript",
   "version": "1.0.0",
-  "description": "Der Einkaufslistenrechner aus Folge 10 - aber mit neuer React- und Webpack-Version",
+  "description": "Der Einkaufslistenrechner aus Folge 16 - und bereit zur Nutzung von TypeScript!",
   "scripts": {
     "start": "concurrently \"npm:start-frontend\" \"npm:start-backend\"",
     "start-frontend": "webpack serve",

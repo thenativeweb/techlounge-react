@@ -60,7 +60,7 @@ export const RecipeForm = ({ recipe = emptyState, onSave }) => {
   };
   const ingredientList = ingredients.map((ingredient, index) => (
     <IngredientFormPart
-      id={ `ingredient-${index}` }
+      key={`ingredient-${index}`}
       ingredient={ ingredient }
       onChange={ handleIngredientChange }
     />

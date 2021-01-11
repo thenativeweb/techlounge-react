@@ -1,8 +1,8 @@
 import { NumericalInput } from '../../components/NumericalInput';
 import { UnitInput } from '../../components/UnitInput';
 
-export const IngredientFormPart = ({ id, ingredient, onChange }) => (
-  <div className='ingredient-form' key ={id}>
+export const IngredientFormPart = ({ ingredient, onChange }) => (
+  <div className='ingredient-form' >
     <label> Zutat: <input
       type='text'
       value={ ingredient.name }
