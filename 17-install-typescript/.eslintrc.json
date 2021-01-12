@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "es/browser"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "project": [ "./17-install-typescript/tsconfig.json" ]
+  },
+  "rules": {
+    "class-methods-use-this": "off",
+    "no-console": "off",
+    "prefer-destructuring": "off",
+    "prefer-named-capture-group": "off",
+    "require-unicode-regexp": "off",
+    "sort-imports": "off",
+    "react/destructuring-assignment": "off",
+    "react/no-array-index-key": "off",
+    "react/prefer-stateless-function": "off",
+    "typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/restrict-plus-operands": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/promise-function-async": "off"
+  },
+  "globals": {
+    "React": false,
+    "ReactDOM": false
+  }
+}
