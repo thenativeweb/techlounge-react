@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
 
-export const TabController = ({ children }: { children?: any }) => {
+export const TabController = ({ children }) => {
   const [ visibleTab, setVisibleTab ] = useState(0);
 
   const tabSelection = children.map((childElement, index) => {

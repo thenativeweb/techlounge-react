@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-export const Tab = ({ headline, children }: { headline: string; children?: any}) => (
+export const Tab = ({ headline, children }) => (
   <Fragment>
     <h1>{headline}</h1>
     {children}
