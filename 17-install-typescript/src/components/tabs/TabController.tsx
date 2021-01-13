@@ -1,6 +1,6 @@
-import { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
-export const TabController = ({ children }: { children?: any }) => {
+export const TabController = ({ children }) => {
   const [ visibleTab, setVisibleTab ] = useState(0);
 
   const tabSelection = children.map((childElement, index) => {
@@ -17,7 +17,7 @@ export const TabController = ({ children }: { children?: any }) => {
   });
 
   return (
-    <Fragment>
+    <React.Fragment>
       <nav className='tabHeader'>
         <ul>
           {tabSelection}
@@ -26,6 +26,6 @@ export const TabController = ({ children }: { children?: any }) => {
       <article>
         {children[visibleTab]}
       </article>
-    </Fragment>
+    </React.Fragment>
   );
 };

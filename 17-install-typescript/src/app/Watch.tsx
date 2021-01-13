@@ -8,7 +8,7 @@ export const Watch = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setTime(getCurrentTime());
-    }, 1000);
+    }, 1_000);
 
     return () => clearInterval(intervalId);
   }, []);

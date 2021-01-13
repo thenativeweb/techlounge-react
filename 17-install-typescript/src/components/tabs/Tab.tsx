@@ -1,8 +1,8 @@
-import { Fragment } from 'react';
+import React from 'react';
 
-export const Tab = ({ headline, children }: { headline: string; children?: any}) => (
-  <Fragment>
+export const Tab = ({ headline, children }) => (
+  <React.Fragment>
     <h1>{headline}</h1>
     {children}
-  </Fragment>
+  </React.Fragment>
 );
