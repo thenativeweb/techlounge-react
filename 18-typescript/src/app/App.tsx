@@ -1,12 +1,12 @@
 import { IngredientsList } from '../components/IngredientsList';
 import { Recipe } from '../types/Recipe';
+import { RecipeChangeHandler } from './RecipeForm/types/RecipeChangeHandler';
 import { RecipeForm } from './RecipeForm/RecipeForm';
 import { RecipeList } from './RecipeList/RecipeList';
 import { Watch } from './Watch';
-import { addRecipe, toggleEditForm, updateRecipe, sumRecipeIngredients, RecipeListChanger } from './recipeStateService';
+import { addRecipe, RecipeListChanger, sumRecipeIngredients, toggleEditForm, updateRecipe } from './recipeStateService';
+import { FunctionComponent, ReactElement, useEffect, useState } from 'react';
 import { Tab, TabController } from '../components/tabs';
-import { useState, useEffect, FunctionComponent, ReactElement } from 'react';
-import { RecipeChangeHandler } from './RecipeForm/types/RecipeChangeHandler';
 
 const App: FunctionComponent = (): ReactElement => {
   const [ recipes, setRecipes ] = useState<Recipe[]>([]);

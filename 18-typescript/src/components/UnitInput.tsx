@@ -1,5 +1,5 @@
-import { ChangeEventHandler, FunctionComponent, ReactElement } from 'react';
 import { Unit } from '../types/Unit';
+import { ChangeEventHandler, FunctionComponent, ReactElement } from 'react';
 
 interface UnitInputProps {
   value: Unit;

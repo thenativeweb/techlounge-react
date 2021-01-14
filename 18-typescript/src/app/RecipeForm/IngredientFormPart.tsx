@@ -1,8 +1,8 @@
-import { FunctionComponent, ReactElement, ReactEventHandler, SyntheticEvent } from 'react';
+import { FormChangeEvent } from './types/FormChangeEvent';
+import { Ingredient } from '../../types/Ingredient';
 import { NumericalInput } from '../../components/NumericalInput';
 import { UnitInput } from '../../components/UnitInput';
-import { Ingredient } from '../../types/Ingredient';
-import { FormChangeEvent } from './types/FormChangeEvent';
+import { FunctionComponent, ReactElement, ReactEventHandler, SyntheticEvent } from 'react';
 
 interface IngredientFormPartProps {
   ingredient: Ingredient;

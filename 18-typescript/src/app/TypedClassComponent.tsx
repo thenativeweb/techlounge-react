@@ -1,4 +1,4 @@
-import React from 'react';
+import { ChangeEvent, Component } from 'react';
 
 interface TypedClassComponentProps {
   name: string;
@@ -8,7 +8,7 @@ interface TypedClassComponentState {
   newName: string;
 }
 
-class TypedClassComponent extends React.Component<TypedClassComponentProps, TypedClassComponentState> {
+class TypedClassComponent extends Component<TypedClassComponentProps, TypedClassComponentState> {
   constructor (props: TypedClassComponentProps) {
     super(props);
 
@@ -19,7 +19,7 @@ class TypedClassComponent extends React.Component<TypedClassComponentProps, Type
     this.handleChange = this.handleChange.bind(this);
   }
 
-  private handleChange (event: React.ChangeEvent<HTMLInputElement>) {
+  private handleChange (event: ChangeEvent<HTMLInputElement>) {
     this.setState({
       newName: event.target.value
     });

@@ -12,7 +12,6 @@
     "prefer-destructuring": "off",
     "prefer-named-capture-group": "off",
     "require-unicode-regexp": "off",
-    "sort-imports": "off",
     "react/destructuring-assignment": "off",
     "react/no-array-index-key": "off",
     "react/prefer-stateless-function": "off",

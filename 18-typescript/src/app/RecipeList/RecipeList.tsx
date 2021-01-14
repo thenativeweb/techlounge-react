@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 import { IngredientsList } from '../../components/IngredientsList';
 import { Recipe } from '../../types/Recipe';
-import { RecipeForm } from '../RecipeForm/RecipeForm';
 import { RecipeChangeHandler } from '../RecipeForm/types/RecipeChangeHandler';
+import { RecipeForm } from '../RecipeForm/RecipeForm';
 
 interface RecipeListProps {
   recipes: Recipe[];

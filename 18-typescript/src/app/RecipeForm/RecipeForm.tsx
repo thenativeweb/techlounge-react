@@ -1,10 +1,10 @@
-import { FunctionComponent, ReactElement, useState } from 'react';
 import { FormChangeEvent } from './types/FormChangeEvent';
 import { Ingredient } from '../../types/Ingredient';
-import { Recipe } from '../../types/Recipe';
 import { IngredientFormPart } from './IngredientFormPart';
-import './RecipeForm.css';
+import { Recipe } from '../../types/Recipe';
 import { RecipeChangeHandler } from './types/RecipeChangeHandler';
+import { ChangeEvent, FunctionComponent, ReactElement, useState } from 'react';
+import './RecipeForm.css';
 
 const createEmptyIngredient = (): Ingredient => ({
   name: '',
@@ -29,24 +29,26 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
   const [ ingredients, setIngredients ] = useState<Ingredient[]>(recipe.ingredients);
 
   const handleAddIngredient = (): void => {
-    setIngredients(currentIngridients => [
+    setIngredients((currentIngridients: Ingredient[]): Ingredient[] => [
       ...currentIngridients,
       createEmptyIngredient()
     ]);
   };
 
-  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>): void => setRecipeName(event.target.value);
+  const handleNameChange = (event: ChangeEvent<HTMLInputElement>): void => setRecipeName(event.target.value);
 
   const handleIngredientChange = (event: FormChangeEvent, ingredientName: string): void => {
     setIngredients((currentIngridients: Ingredient[]): Ingredient[] =>
-      currentIngridients.map<Ingredient>((ingredient: Ingredient): Ingredient => {
+      currentIngridients.map((ingredient: Ingredient): Ingredient => {
         const { value, name } = event.target;
 
         if (ingredient.name === ingredientName) {
-          return {
+          const result = {
             ...ingredient,
             [name]: name === 'amount' ? Number.parseFloat(value) : value
           };
+
+          return result;
         }
 
         return ingredient;

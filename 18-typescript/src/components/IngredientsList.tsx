@@ -1,5 +1,5 @@
-import { FunctionComponent, ReactElement } from 'react';
 import { Ingredient } from '../types/Ingredient';
+import { FunctionComponent, ReactElement } from 'react';
 
 interface IngredientsListProps {
   items: Ingredient[];

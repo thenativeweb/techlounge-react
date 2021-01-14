@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FunctionComponent, ReactElement } from 'react';
+import { ChangeEvent, ChangeEventHandler, FunctionComponent, ReactElement } from 'react';
 
 const allowedInputRegex = /^\d*\.?\d*$/;
 
@@ -9,7 +9,7 @@ interface NumericalInputProps {
 }
 
 const NumericalInput: FunctionComponent<NumericalInputProps> = ({ name, value, onChange }): ReactElement => {
-  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
 
     if (allowedInputRegex.test(newValue)) {

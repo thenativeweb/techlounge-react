@@ -2,6 +2,7 @@ import { Ingredient } from '../types/Ingredient';
 import { Recipe } from '../types/Recipe';
 
 type RecipeListChanger = (recipes: Recipe[], recipe: Recipe) => Recipe[];
+
 const addRecipe: RecipeListChanger = function (recipes: Recipe[], newRecipe: Recipe) {
   return [
     ...recipes,
