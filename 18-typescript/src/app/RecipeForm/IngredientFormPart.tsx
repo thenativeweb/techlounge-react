@@ -2,10 +2,11 @@ import { FunctionComponent, ReactElement, ReactEventHandler, SyntheticEvent } fr
 import { NumericalInput } from '../../components/NumericalInput';
 import { UnitInput } from '../../components/UnitInput';
 import { Ingredient } from '../../types/Ingredient';
+import { FormChangeEvent } from './types/FormChangeEvent';
 
 interface IngredientFormPartProps {
   ingredient: Ingredient;
-  onChange: (event: React.ChangeEvent<HTMLElement>, name: string) => void;
+  onChange: (event: FormChangeEvent, name: string) => void;
 }
 
 const IngredientFormPart: FunctionComponent<IngredientFormPartProps> = ({ ingredient, onChange }): ReactElement => (

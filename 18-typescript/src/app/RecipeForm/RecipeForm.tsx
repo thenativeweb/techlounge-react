@@ -1,8 +1,10 @@
 import { FunctionComponent, ReactElement, useState } from 'react';
+import { FormChangeEvent } from './types/FormChangeEvent';
 import { Ingredient } from '../../types/Ingredient';
 import { Recipe } from '../../types/Recipe';
 import { IngredientFormPart } from './IngredientFormPart';
 import './RecipeForm.css';
+import { RecipeChangeHandler } from './types/RecipeChangeHandler';
 
 const createEmptyIngredient = (): Ingredient => ({
   name: '',
@@ -19,7 +21,7 @@ const emptyState: Recipe = {
 
 interface RecipeFormProps {
   recipe?: Recipe;
-  onSave: (recipe: Recipe) => void;
+  onSave: RecipeChangeHandler;
 }
 
 const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, onSave }): ReactElement => {
@@ -35,9 +37,9 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>): void => setRecipeName(event.target.value);
 
-  const handleIngredientChange = (event, ingredientName: string) => {
-    setIngredients(currentIngridients =>
-      currentIngridients.map(ingredient => {
+  const handleIngredientChange = (event: FormChangeEvent, ingredientName: string): void => {
+    setIngredients((currentIngridients: Ingredient[]): Ingredient[] =>
+      currentIngridients.map<Ingredient>((ingredient: Ingredient): Ingredient => {
         const { value, name } = event.target;
 
         if (ingredient.name === ingredientName) {
@@ -51,7 +53,7 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
       }));
   };
 
-  const handleRecipeSave = () => {
+  const handleRecipeSave = (): void => {
     onSave({
       id: recipe.id,
       name: recipeName,
@@ -60,9 +62,10 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
     });
 
     setRecipeName('');
-    setIngredients([]);
+    setIngredients([ createEmptyIngredient() ]);
   };
-  const ingredientList = ingredients.map((ingredient, index) => (
+
+  const ingredientList = ingredients.map((ingredient: Ingredient, index: number): ReactElement => (
     <IngredientFormPart
       key={`ingredient-${index}`}
       ingredient={ ingredient }

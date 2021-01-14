@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "sourceMap": true,
     "module": "CommonJS",
     "target": "ES2019",

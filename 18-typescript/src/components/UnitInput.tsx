@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FunctionComponent, ReactElement, ReactEventHandler } from 'react';
+import { ChangeEventHandler, FunctionComponent, ReactElement } from 'react';
 import { Unit } from '../types/Unit';
 
 interface UnitInputProps {

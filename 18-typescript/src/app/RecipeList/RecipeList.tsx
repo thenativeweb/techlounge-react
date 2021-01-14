@@ -1,7 +1,16 @@
+import { FunctionComponent } from 'react';
 import { IngredientsList } from '../../components/IngredientsList';
+import { Recipe } from '../../types/Recipe';
 import { RecipeForm } from '../RecipeForm/RecipeForm';
+import { RecipeChangeHandler } from '../RecipeForm/types/RecipeChangeHandler';
 
-export const RecipeList = ({ recipes, onSaveChanges, onToggleEdit }) => {
+interface RecipeListProps {
+  recipes: Recipe[];
+  onSaveChanges: RecipeChangeHandler;
+  onToggleEdit: RecipeChangeHandler;
+}
+
+const RecipeList: FunctionComponent<RecipeListProps> = ({ recipes, onSaveChanges, onToggleEdit }) => {
   const listComponents = recipes.map(recipe => {
     const subContent = recipe.showEditForm ?
       <RecipeForm recipe={ recipe } onSave={ onSaveChanges } /> :
@@ -21,3 +30,5 @@ export const RecipeList = ({ recipes, onSaveChanges, onToggleEdit }) => {
     </ul>
   );
 };
+
+export { RecipeList };

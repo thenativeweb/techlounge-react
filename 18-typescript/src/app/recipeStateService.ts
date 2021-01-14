@@ -1,8 +1,8 @@
 import { Ingredient } from '../types/Ingredient';
 import { Recipe } from '../types/Recipe';
 
-type RecipeListChange = (recipes: Recipe[], recipe: Recipe) => Recipe[];
-const addRecipe: RecipeListChange = function (recipes: Recipe[], newRecipe: Recipe) {
+type RecipeListChanger = (recipes: Recipe[], recipe: Recipe) => Recipe[];
+const addRecipe: RecipeListChanger = function (recipes: Recipe[], newRecipe: Recipe) {
   return [
     ...recipes,
     {
@@ -13,8 +13,8 @@ const addRecipe: RecipeListChange = function (recipes: Recipe[], newRecipe: Reci
   ];
 };
 
-const toggleEditForm: RecipeListChange = function (recipes: Recipe[], changedRecipe: Recipe) {
-  return recipes.map(recipe => {
+const toggleEditForm: RecipeListChanger = function (recipes: Recipe[], changedRecipe: Recipe) {
+  return recipes.map((recipe: Recipe): Recipe => {
     if (recipe.id === changedRecipe.id) {
       return {
         ...changedRecipe,
@@ -26,8 +26,8 @@ const toggleEditForm: RecipeListChange = function (recipes: Recipe[], changedRec
   });
 };
 
-const updateRecipe: RecipeListChange = function (recipes: Recipe[], changedRecipe: Recipe) {
-  return recipes.map(recipe => {
+const updateRecipe: RecipeListChanger = function (recipes: Recipe[], changedRecipe: Recipe) {
+  return recipes.map((recipe: Recipe): Recipe => {
     if (recipe.id === changedRecipe.id) {
       return {
         ...recipe,
@@ -40,7 +40,7 @@ const updateRecipe: RecipeListChange = function (recipes: Recipe[], changedRecip
   });
 };
 
-const sumRecipeIngredients = function (recipes: Recipe[]) {
+const sumRecipeIngredients = function (recipes: Recipe[]): Ingredient[] {
   return recipes.reduce<Ingredient[]>(
     (list: Ingredient[], recipe: Recipe) => [ ...list, ...recipe.ingredients ], []
   ).reduce<Ingredient[]>((list: Ingredient[], ingredient: Ingredient) => {
@@ -56,4 +56,4 @@ const sumRecipeIngredients = function (recipes: Recipe[]) {
   }, []);
 };
 
-export { RecipeListChange, addRecipe, toggleEditForm, updateRecipe, sumRecipeIngredients };
+export { RecipeListChanger, addRecipe, toggleEditForm, updateRecipe, sumRecipeIngredients };
