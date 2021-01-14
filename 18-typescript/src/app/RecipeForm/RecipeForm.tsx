@@ -89,9 +89,9 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
         <label>Zutaten</label>
         <article>
           {ingredientList}
-          <button type='button' onClick={ () => handleAddIngredient() }>Zutat hinzufügen</button>
+          <button type='button' onClick={ (): void => handleAddIngredient() }>Zutat hinzufügen</button>
         </article>
-        <button type='button' onClick={ () => handleRecipeSave() }>Speichern</button>
+        <button type='button' onClick={ (): void => handleRecipeSave() }>Speichern</button>
       </form>
     </article>
   );

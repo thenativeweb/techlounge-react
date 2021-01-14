@@ -9,7 +9,7 @@ interface NumericalInputProps {
 }
 
 const NumericalInput: FunctionComponent<NumericalInputProps> = ({ name, value, onChange }): ReactElement => {
-  const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleInput = (event: ChangeEvent<HTMLInputElement>): void => {
     const newValue = event.target.value;
 
     if (allowedInputRegex.test(newValue)) {

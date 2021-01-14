@@ -3,7 +3,7 @@ import { Recipe } from '../types/Recipe';
 
 type RecipeListChanger = (recipes: Recipe[], recipe: Recipe) => Recipe[];
 
-const addRecipe: RecipeListChanger = function (recipes: Recipe[], newRecipe: Recipe) {
+const addRecipe: RecipeListChanger = function (recipes: Recipe[], newRecipe: Recipe): Recipe[] {
   return [
     ...recipes,
     {
@@ -14,7 +14,7 @@ const addRecipe: RecipeListChanger = function (recipes: Recipe[], newRecipe: Rec
   ];
 };
 
-const toggleEditForm: RecipeListChanger = function (recipes: Recipe[], changedRecipe: Recipe) {
+const toggleEditForm: RecipeListChanger = function (recipes: Recipe[], changedRecipe: Recipe): Recipe[] {
   return recipes.map((recipe: Recipe): Recipe => {
     if (recipe.id === changedRecipe.id) {
       return {
@@ -27,7 +27,7 @@ const toggleEditForm: RecipeListChanger = function (recipes: Recipe[], changedRe
   });
 };
 
-const updateRecipe: RecipeListChanger = function (recipes: Recipe[], changedRecipe: Recipe) {
+const updateRecipe: RecipeListChanger = function (recipes: Recipe[], changedRecipe: Recipe): Recipe[] {
   return recipes.map((recipe: Recipe): Recipe => {
     if (recipe.id === changedRecipe.id) {
       return {
@@ -42,19 +42,23 @@ const updateRecipe: RecipeListChanger = function (recipes: Recipe[], changedReci
 };
 
 const sumRecipeIngredients = function (recipes: Recipe[]): Ingredient[] {
-  return recipes.reduce<Ingredient[]>(
-    (list: Ingredient[], recipe: Recipe) => [ ...list, ...recipe.ingredients ], []
-  ).reduce<Ingredient[]>((list: Ingredient[], ingredient: Ingredient) => {
-    const existingItem = list.find(searchItem => searchItem.name === ingredient.name);
+  return recipes.
+    reduce(
+      (list: Ingredient[], recipe: Recipe): Ingredient[] => [ ...list, ...recipe.ingredients ], []
+    ).
+    reduce(
+      (list: Ingredient[], ingredient: Ingredient): Ingredient[] => {
+        const existingItem = list.find((searchItem: Ingredient): boolean => searchItem.name === ingredient.name);
 
-    if (existingItem) {
-      existingItem.amount += ingredient.amount;
-    } else {
-      list.push({ ...ingredient });
-    }
+        if (existingItem) {
+          existingItem.amount += ingredient.amount;
+        } else {
+          list.push({ ...ingredient });
+        }
 
-    return list;
-  }, []);
+        return list;
+      }, []
+    );
 };
 
 export { RecipeListChanger, addRecipe, toggleEditForm, updateRecipe, sumRecipeIngredients };
