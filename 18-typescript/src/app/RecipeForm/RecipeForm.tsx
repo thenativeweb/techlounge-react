@@ -1,8 +1,8 @@
-import { FormChangeEvent } from './types/FormChangeEvent';
 import { Ingredient } from '../../types/Ingredient';
 import { IngredientFormPart } from './IngredientFormPart';
 import { Recipe } from '../../types/Recipe';
 import { RecipeChangeHandler } from './types/RecipeChangeHandler';
+import { RecipeFormChangeEvent } from './types/RecipeFormChangeEvent';
 import { ChangeEvent, FunctionComponent, ReactElement, useState } from 'react';
 import './RecipeForm.css';
 
@@ -37,7 +37,7 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>): void => setRecipeName(event.target.value);
 
-  const handleIngredientChange = (event: FormChangeEvent, ingredientName: string): void => {
+  const handleIngredientChange = (event: RecipeFormChangeEvent, ingredientName: string): void => {
     setIngredients((currentIngridients: Ingredient[]): Ingredient[] =>
       currentIngridients.map((ingredient: Ingredient): Ingredient => {
         const { value, name } = event.target;
