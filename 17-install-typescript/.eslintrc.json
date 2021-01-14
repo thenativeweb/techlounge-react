@@ -16,7 +16,6 @@
     "react/destructuring-assignment": "off",
     "react/no-array-index-key": "off",
     "react/prefer-stateless-function": "off",
-    "typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/restrict-plus-operands": "off",
