@@ -15,19 +15,19 @@ const IngredientFormPart: FunctionComponent<IngredientFormPartProps> = ({ ingred
       type='text'
       value={ ingredient.name }
       name='name'
-      onChange={ (event: RecipeFormChangeEvent): void => onChange(event, ingredient.name) }
+      onChange={ (event): void => onChange(event, ingredient.name) }
     />
     </label>
     <label> Menge: <NumericalInput
       value={ ingredient.amount }
       name='amount'
-      onChange={ (event: RecipeFormChangeEvent): void => onChange(event, ingredient.name) }
+      onChange={ (event): void => onChange(event, ingredient.name) }
     />
     </label>
     <label>
       <UnitInput
         value={ ingredient.unit }
-        onChange={ (event: RecipeFormChangeEvent): void => onChange(event, ingredient.name) }
+        onChange={ (event): void => onChange(event, ingredient.name) }
       />
     </label>
   </div>

@@ -22,7 +22,7 @@ const App: FunctionComponent = (): ReactElement => {
   }, []);
 
   const changeRecipeStateWith = (recipeListChanger: RecipeListChanger): RecipeChangeHandler =>
-    (recipe: Recipe): void => setRecipes(recipeListChanger(recipes, recipe));
+    (recipe): void => setRecipes(recipeListChanger(recipes, recipe));
 
   if (isLoading) {
     return (

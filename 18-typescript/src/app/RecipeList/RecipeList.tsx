@@ -12,7 +12,7 @@ interface RecipeListProps {
 
 const RecipeList: FunctionComponent<RecipeListProps> = ({ recipes, onSaveChanges, onToggleEdit }): ReactElement => {
   const listComponents: ReactElement[] = recipes.map((recipe: Recipe): ReactElement => {
-    const subContent: ReactElement = recipe.showEditForm ?
+    const subContent = recipe.showEditForm ?
       <RecipeForm recipe={ recipe } onSave={ onSaveChanges } /> :
       <IngredientsList items={ recipe.ingredients } />;
 

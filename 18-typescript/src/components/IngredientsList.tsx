@@ -6,7 +6,7 @@ interface IngredientsListProps {
 }
 
 const IngredientsList: FunctionComponent<IngredientsListProps> = ({ items }): ReactElement => {
-  const listElements = items.map((item: Ingredient): ReactElement => (
+  const listElements = items.map((item): ReactElement => (
     <li key={ `${item.name}-item` }>{item.amount} {item.unit} {item.name} </li>
   ));
 

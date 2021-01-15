@@ -6,7 +6,7 @@ const Watch: FunctionComponent = (): ReactElement => {
   const [ time, setTime ] = useState<string>(getCurrentTime());
 
   useEffect((): () => void => {
-    const intervalId: number = window.setInterval((): void => {
+    const intervalId = window.setInterval((): void => {
       setTime(getCurrentTime());
     }, 1_000);
 

@@ -15,7 +15,7 @@ const addRecipe: RecipeListChanger = function (recipes: Recipe[], newRecipe: Rec
 };
 
 const toggleEditForm: RecipeListChanger = function (recipes: Recipe[], changedRecipe: Recipe): Recipe[] {
-  return recipes.map((recipe: Recipe): Recipe => {
+  return recipes.map((recipe): Recipe => {
     if (recipe.id === changedRecipe.id) {
       return {
         ...changedRecipe,
@@ -28,7 +28,7 @@ const toggleEditForm: RecipeListChanger = function (recipes: Recipe[], changedRe
 };
 
 const updateRecipe: RecipeListChanger = function (recipes: Recipe[], changedRecipe: Recipe): Recipe[] {
-  return recipes.map((recipe: Recipe): Recipe => {
+  return recipes.map((recipe): Recipe => {
     if (recipe.id === changedRecipe.id) {
       return {
         ...recipe,
@@ -48,7 +48,7 @@ const sumRecipeIngredients = function (recipes: Recipe[]): Ingredient[] {
     ).
     reduce(
       (list: Ingredient[], ingredient: Ingredient): Ingredient[] => {
-        const existingItem = list.find((searchItem: Ingredient): boolean => searchItem.name === ingredient.name);
+        const existingItem = list.find((searchItem): boolean => searchItem.name === ingredient.name);
 
         if (existingItem) {
           existingItem.amount += ingredient.amount;

@@ -29,7 +29,7 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
   const [ ingredients, setIngredients ] = useState<Ingredient[]>(recipe.ingredients);
 
   const handleAddIngredient = (): void => {
-    setIngredients((currentIngridients: Ingredient[]): Ingredient[] => [
+    setIngredients((currentIngridients): Ingredient[] => [
       ...currentIngridients,
       createEmptyIngredient()
     ]);
@@ -38,8 +38,8 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>): void => setRecipeName(event.target.value);
 
   const handleIngredientChange = (event: RecipeFormChangeEvent, ingredientName: string): void => {
-    setIngredients((currentIngridients: Ingredient[]): Ingredient[] =>
-      currentIngridients.map((ingredient: Ingredient): Ingredient => {
+    setIngredients((currentIngridients): Ingredient[] =>
+      currentIngridients.map((ingredient): Ingredient => {
         const { value, name } = event.target;
 
         if (ingredient.name === ingredientName) {
@@ -67,7 +67,7 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
     setIngredients([ createEmptyIngredient() ]);
   };
 
-  const ingredientList = ingredients.map((ingredient: Ingredient, index: number): ReactElement => (
+  const ingredientList = ingredients.map((ingredient, index): ReactElement => (
     <IngredientFormPart
       key={`ingredient-${index}`}
       ingredient={ ingredient }

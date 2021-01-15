@@ -1,5 +1,5 @@
-import React, { FunctionComponent, ReactElement, useState } from 'react';
 import { TabProps } from './Tab';
+import React, { FunctionComponent, ReactElement, useState } from 'react';
 
 interface TabControllerProps {
   children: ReactElement<TabProps>[];
@@ -8,7 +8,7 @@ interface TabControllerProps {
 const TabController: FunctionComponent<TabControllerProps> = ({ children }): ReactElement => {
   const [ visibleTab, setVisibleTab ] = useState(0);
 
-  const tabSelection = children.map((childElement, index) => {
+  const tabSelection = children.map((childElement, index): ReactElement => {
     const key = `tab-${index}`;
     const content = index === visibleTab ?
       (<b>{childElement.props.headline}</b>) :
@@ -16,7 +16,7 @@ const TabController: FunctionComponent<TabControllerProps> = ({ children }): Rea
 
     return (
       <li key={ key }>
-        <a href='#' onClick={ () => setVisibleTab(index) }>{content}</a>
+        <a href='#' onClick={ (): void => setVisibleTab(index) }>{content}</a>
       </li>
     );
   });

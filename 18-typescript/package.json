@@ -1,7 +1,7 @@
 {
-  "name": "17-install-typescript",
+  "name": "18-typescript",
   "version": "1.0.0",
-  "description": "Der Einkaufslistenrechner aus Folge 16 - und bereit zur Nutzung von TypeScript!",
+  "description": "Der Einkaufslistenrechner typisiert mit TypeScript.",
   "scripts": {
     "start": "concurrently \"npm:start-frontend\" \"npm:start-backend\"",
     "start-frontend": "webpack serve",
