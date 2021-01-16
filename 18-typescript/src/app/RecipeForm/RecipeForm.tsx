@@ -37,7 +37,7 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>): void => setRecipeName(event.target.value);
 
-  const handleIngredientChange = (event: RecipeFormChangeEvent, ingredientName: string): void => {
+  const handleIngredientChange: RecipeFormChangeEvent = (event, ingredientName): void => {
     setIngredients((currentIngridients): Ingredient[] =>
       currentIngridients.map((ingredient): Ingredient => {
         const { value, name } = event.target;

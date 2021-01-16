@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react';
 
-type RecipeFormChangeEvent = ChangeEvent<HTMLInputElement | HTMLSelectElement>;
+type RecipeFormChangeEvent = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>, name: string) => void;
 
 export { RecipeFormChangeEvent };
