@@ -1,9 +1,7 @@
-export class Paragraph extends React.Component {
-  render () {
-    return (
-      <p className='paragraph'>
-        { this.props.text }
-      </p>
-    );
-  }
+import React from 'react';
+
+export function Paragraph (props) {
+  return (
+      <p className='paragraph'> { props.text } </p>
+  );
 }
