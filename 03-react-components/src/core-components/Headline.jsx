@@ -1,11 +1,11 @@
-export function Headline (props) {
-  const styles = {
-    color: 'red'
-  };
+export class Headline extends React.Component {
+  render () {
+    const styles = {
+      color: 'red'
+    };
 
-  return (
-    <h1 style={ styles }>
-      { props.content }
-    </h1>
-  );
+    return (
+    <h1 style={ styles }> { this.props.content } </h1>
+    );
+  }
 }

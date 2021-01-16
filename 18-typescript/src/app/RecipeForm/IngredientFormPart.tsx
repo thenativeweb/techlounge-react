@@ -6,7 +6,7 @@ import { FunctionComponent, ReactElement } from 'react';
 
 interface IngredientFormPartProps {
   ingredient: Ingredient;
-  onChange: (event: RecipeFormChangeEvent, name: string) => void;
+  onChange: RecipeFormChangeEvent;
 }
 
 const IngredientFormPart: FunctionComponent<IngredientFormPartProps> = ({ ingredient, onChange }): ReactElement => (
