@@ -4,7 +4,7 @@ Dieses Repository beinhaltet die begeleitenden Code-Beispiele zum Video-Kurs [Ei
 
 ## Aufbau
 
-Jede Folge hat einen eigenen Ordner mit dem jeweiligen Namne der Folge. Die Ordner sind alleine lauffähig und beinhalten alle Dateien aus dem Video.
+Jede Folge hat einen eigenen Ordner mit dem jeweiligen Name der Folge. Die Ordner sind alleine lauffähig und beinhalten alle Dateien aus dem Video.
 
 ### Ausführung
 
