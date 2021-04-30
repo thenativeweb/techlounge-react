@@ -1,7 +1,7 @@
 {
   "name": "20-eslint",
   "version": "1.0.0",
-  "description": "Der Einkaufslistenrechner typisiert mit TypeScript.",
+  "description": "Der Einkaufslistenrechner noch besser abgesichert mit ESLint.",
   "scripts": {
     "start": "concurrently \"npm:start-frontend\" \"npm:start-backend\"",
     "start-frontend": "webpack serve",
