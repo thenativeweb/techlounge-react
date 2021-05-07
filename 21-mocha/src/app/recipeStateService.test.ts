@@ -20,7 +20,7 @@ const createRecipe = (props: Partial<Recipe> = {}): Recipe => ({ ...defaultRecip
 const createIngredient = (props: Partial<Ingredient> = {}): Ingredient => ({ ...defaultIngredient, ...props });
 
 describe('recipeStateService', (): void => {
-  describe('.addRecipe()', (): void => {
+  describe('addRecipe()', (): void => {
     it('adds the recipe to the given RecipeList.', async (): Promise<void> => {
       const firstRecipe: Recipe = createRecipe({ id: 1 });
       const secondRecipe: Recipe = createRecipe({ id: 2 });
