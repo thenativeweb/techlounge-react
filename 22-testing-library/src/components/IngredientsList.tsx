@@ -11,7 +11,7 @@ const IngredientsList: FunctionComponent<IngredientsListProps> = ({ items }): Re
   ));
 
   return (
-    <ul>
+    <ul aria-label='Zutaten'>
       {listElements}
     </ul>
   );

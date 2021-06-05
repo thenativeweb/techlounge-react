@@ -1,23 +1,8 @@
 import { assert } from 'assertthat';
-import { Ingredient } from '../types/Ingredient';
+import { createIngredient } from '../../fixtures/createIngredient';
+import { createRecipe } from '../../fixtures/createRecipe';
 import { Recipe } from '../types/Recipe';
 import { addRecipe, sumRecipeIngredients, toggleEditForm, updateRecipe } from './recipeStateService';
-
-const defaultRecipe: Recipe = {
-  id: 1,
-  ingredients: [],
-  name: 'testRecipe',
-  showEditForm: false
-};
-
-const defaultIngredient: Ingredient = {
-  amount: 100,
-  name: 'TestIngredient',
-  unit: 'Liter'
-};
-
-const createRecipe = (props: Partial<Recipe> = {}): Recipe => ({ ...defaultRecipe, ...props });
-const createIngredient = (props: Partial<Ingredient> = {}): Ingredient => ({ ...defaultIngredient, ...props });
 
 describe('recipeStateService', (): void => {
   describe('addRecipe()', (): void => {
