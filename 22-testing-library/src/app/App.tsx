@@ -1,7 +1,7 @@
 import { IngredientsList } from '../components/IngredientsList';
 import { Recipe } from '../types/Recipe';
 import { RecipeChangeHandler } from './RecipeForm/types/RecipeChangeHandler';
-import { RecipeForm } from './RecipeForm/RecipeForm';
+import { RecipeForm } from './RecipeForm';
 import { RecipeList } from './RecipeList/RecipeList';
 import { Watch } from './Watch';
 import { addRecipe, RecipeListChanger, sumRecipeIngredients, toggleEditForm, updateRecipe } from './recipeStateService';

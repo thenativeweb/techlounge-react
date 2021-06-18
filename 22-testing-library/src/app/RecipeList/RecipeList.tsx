@@ -1,7 +1,7 @@
 import { IngredientsList } from '../../components/IngredientsList';
 import { Recipe } from '../../types/Recipe';
 import { RecipeChangeHandler } from '../RecipeForm/types/RecipeChangeHandler';
-import { RecipeForm } from '../RecipeForm/RecipeForm';
+import { RecipeForm } from '../RecipeForm';
 import { FunctionComponent, ReactElement } from 'react';
 
 interface RecipeListProps {
@@ -25,7 +25,7 @@ const RecipeList: FunctionComponent<RecipeListProps> = ({ recipes, onSaveChanges
   });
 
   return (
-    <ul>
+    <ul aria-label='Rezepte'>
       { listComponents }
     </ul>
   );
