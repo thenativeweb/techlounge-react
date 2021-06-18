@@ -24,7 +24,6 @@
     "@babel/core": "7.12.10",
     "@babel/preset-react": "7.12.10",
     "@testing-library/react": "11.2.7",
-    "@testing-library/user-event": "13.1.9",
     "@types/mocha": "8.2.2",
     "assertthat": "6.0.0",
     "babel-loader": "8.2.2",
