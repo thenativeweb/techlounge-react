@@ -1,16 +1,16 @@
 import { Unit } from '../types/Unit';
-import { ChangeEventHandler, FunctionComponent, ReactElement } from 'react';
+import { FunctionComponent, ReactElement } from 'react';
 
 interface UnitInputProps {
   value: Unit;
-  onChange: ChangeEventHandler<HTMLSelectElement>;
+  onChange: (newUnit: Unit) => void;
 }
 
 const UnitInput: FunctionComponent<UnitInputProps> = ({ value, onChange }): ReactElement => (
   <select
     name='unit'
     value={ value }
-    onChange={ onChange }
+    onChange={ (event): void => onChange(event.target.value as Unit) }
   >
     <option value='Stück'>Stück</option>
     <option value='Gramm'>Gramm</option>
