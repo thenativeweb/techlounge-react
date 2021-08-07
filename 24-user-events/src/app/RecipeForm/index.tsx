@@ -60,7 +60,7 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
       id: recipe.id,
       name: recipeName,
       ingredients,
-      showEditForm: false
+      showEditForm: recipe.showEditForm
     });
 
     setRecipeName('');
@@ -93,7 +93,7 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
           {ingredientList}
           <button type='button' onClick={ (): void => handleAddIngredient() }>Zutat hinzufügen</button>
         </article>
-        <button type='button' onClick={ (): void => handleRecipeSave() }>Speichern</button>
+        <button type='button' onClick={ (): void => handleRecipeSave() } aria-label={ `${recipeName} speichern` }>Speichern</button>
       </form>
     </article>
   );

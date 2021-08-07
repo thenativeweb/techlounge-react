@@ -8,7 +8,7 @@
     "start-backend": "json-server --watch mockBackend/mockRecipes.json",
     "build": "webpack",
     "lint": "eslint ./src",
-    "test": "mocha './src/**/*.test.{ts,tsx}'"
+    "test": "mocha './src/**/*.test.{ts,tsx}' --exit"
   },
   "author": "David Losert",
   "license": "MIT",
@@ -24,7 +24,9 @@
     "@babel/core": "7.12.10",
     "@babel/preset-react": "7.12.10",
     "@testing-library/react": "11.2.7",
+    "@testing-library/user-event": "13.2.1",
     "@types/mocha": "8.2.2",
+    "@types/sinon": "10.0.2",
     "assertthat": "6.0.0",
     "babel-loader": "8.2.2",
     "concurrently": "5.3.0",
@@ -36,6 +38,7 @@
     "ignore-styles": "5.0.1",
     "jsdom": "16.6.0",
     "mocha": "8.4.0",
+    "sinon": "11.1.2",
     "style-loader": "2.0.0",
     "ts-loader": "8.0.14",
     "ts-node": "9.1.1",

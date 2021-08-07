@@ -3,7 +3,9 @@ import { createIngredient } from '../../../fixtures/createIngredient';
 import { createRecipe } from '../../../fixtures/createRecipe';
 import { noop } from '../../../fixtures/noop';
 import { RecipeList } from './RecipeList';
+import userEvent from '@testing-library/user-event';
 import { render, screen, within } from '@testing-library/react';
+import * as sinon from 'sinon';
 
 describe('RecipeList', (): void => {
   it('renders an empty list if no inputs given.', async (): Promise<void> => {
@@ -70,5 +72,45 @@ describe('RecipeList', (): void => {
 
     assert.that(screen.getByLabelText('Name des Rezepts:')).is.not.null();
     assert.that(screen.getByDisplayValue('TestRecipe')).is.not.null();
+  });
+
+  it('calls the onToggleEdit callback on click with the clicked recipe.', async (): Promise<void> => {
+    const recipe = createRecipe({ name: 'TestRecipe', showEditForm: false, ingredients: [ createIngredient() ]});
+    const toggleEditSpy = sinon.spy();
+
+    render(
+      <RecipeList
+        recipes={ [ recipe ] }
+        onSaveChanges={ noop }
+        onToggleEdit={ toggleEditSpy }
+      />
+    );
+
+    const editButton = screen.getByLabelText('TestRecipe bearbeiten');
+
+    userEvent.click(editButton);
+
+    assert.that(toggleEditSpy.calledOnce).is.true();
+    assert.that(toggleEditSpy.firstCall.firstArg).is.equalTo(recipe);
+  });
+
+  it('calls the onSaveChanges handler with the recipe when clicking the save button within the recipeForm..', async (): Promise<void> => {
+    const recipe = createRecipe({ id: 1, name: 'TestRecipe', showEditForm: true, ingredients: [ createIngredient() ]});
+    const onSaveChangesSpy = sinon.spy();
+
+    render(
+      <RecipeList
+        recipes={ [ recipe ] }
+        onSaveChanges={ onSaveChangesSpy }
+        onToggleEdit={ noop }
+      />
+    );
+
+    const saveButton = screen.getByLabelText('TestRecipe speichern');
+
+    userEvent.click(saveButton);
+
+    assert.that(onSaveChangesSpy.calledOnce).is.true();
+    assert.that(onSaveChangesSpy.firstCall.firstArg).is.equalTo(recipe);
   });
 });

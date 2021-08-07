@@ -18,7 +18,7 @@ const RecipeList: FunctionComponent<RecipeListProps> = ({ recipes, onSaveChanges
 
     return (
       <li key={ recipe.id }>
-        { recipe.name } (<a onClick={ (): void => onToggleEdit(recipe) }>Bearbeiten</a>)
+        { recipe.name } (<a onClick={ (): void => onToggleEdit(recipe) } aria-label={ `${recipe.name} bearbeiten` }>Bearbeiten</a>)
         { subContent }
       </li>
     );
