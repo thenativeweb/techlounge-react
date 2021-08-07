@@ -1,11 +1,11 @@
-import { ChangeEvent, ChangeEventHandler, FunctionComponent, ReactElement } from 'react';
+import { ChangeEvent, FunctionComponent, ReactElement } from 'react';
 
 const allowedInputRegex = /^\d*\.?\d*$/u;
 
 interface NumericalInputProps {
   name: string;
   value: number;
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  onChange: (newValue: number) => void;
 }
 
 const NumericalInput: FunctionComponent<NumericalInputProps> = ({ name, value, onChange }): ReactElement => {
@@ -13,7 +13,7 @@ const NumericalInput: FunctionComponent<NumericalInputProps> = ({ name, value, o
     const newValue = event.target.value;
 
     if (allowedInputRegex.test(newValue)) {
-      onChange(event);
+      onChange(Number(event.target.value));
     }
   };
 
