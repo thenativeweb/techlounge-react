@@ -3,13 +3,13 @@ import { NumericalInput } from '../../components/NumericalInput';
 import { UnitInput } from '../../components/UnitInput';
 import { FunctionComponent, ReactElement } from 'react';
 
-interface IngredientFormPartProps {
+interface IngredientFormProps {
   ingredient: Ingredient;
   ingredientNumber: number;
-  onChange: (changedIngredient: Ingredient, oldName: string, ingredientNumber: number) => void;
+  onChange: (changedIngredient: Ingredient, ingredientNumber: number) => void;
 }
 
-const IngredientFormPart: FunctionComponent<IngredientFormPartProps> = ({ ingredient, ingredientNumber, onChange }): ReactElement => (
+const IngredientFormPart: FunctionComponent<IngredientFormProps> = ({ ingredient, ingredientNumber, onChange }): ReactElement => (
   <div className='ingredient-form' role='group' aria-label={ `Zutat ${ingredientNumber}` }>
     <label>Zutat:
       {' '}
@@ -20,7 +20,7 @@ const IngredientFormPart: FunctionComponent<IngredientFormPartProps> = ({ ingred
         onChange={ (event): void => onChange({
           ...ingredient,
           name: event.target.value
-        }, ingredient.name, ingredientNumber) }
+        }, ingredientNumber) }
       />
     </label>
     <label> Menge:
@@ -30,7 +30,7 @@ const IngredientFormPart: FunctionComponent<IngredientFormPartProps> = ({ ingred
         onChange={ (value): void => onChange({
           ...ingredient,
           amount: value
-        }, ingredient.name, ingredientNumber) }
+        }, ingredientNumber) }
       />
     </label>
     <label>
@@ -40,7 +40,7 @@ const IngredientFormPart: FunctionComponent<IngredientFormPartProps> = ({ ingred
         onChange={ (value): void => onChange({
           ...ingredient,
           unit: value
-        }, ingredient.name, ingredientNumber) }
+        }, ingredientNumber) }
       />
     </label>
   </div>

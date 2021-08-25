@@ -1,5 +1,5 @@
 import { Ingredient } from '../../types/Ingredient';
-import { IngredientFormPart } from './IngredientFormPart';
+import { IngredientFormPart } from './IngredientForm';
 import { Recipe } from '../../types/Recipe';
 import { RecipeChangeHandler } from './types/RecipeChangeHandler';
 import { RecipeFormChangeEvent } from './types/RecipeFormChangeEvent';
@@ -37,7 +37,7 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
 
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>): void => setRecipeName(event.target.value);
 
-  const handleIngredientChange = (changedIngredient: Ingredient, ingredientName: string, ingredientNumber: number): void => {
+  const handleIngredientChange = (changedIngredient: Ingredient, ingredientNumber: number): void => {
     setIngredients((currentIngridients): Ingredient[] =>
       currentIngridients.map((ingredient, index): Ingredient => {
         if (index === ingredientNumber - 1) {

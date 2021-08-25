@@ -1,4 +1,6 @@
 import { assert } from 'assertthat';
+import { createIngredient } from '../../../fixtures/createIngredient';
+import { createRecipe } from '../../../fixtures/createRecipe';
 import { noop } from '../../../fixtures/noop';
 import { Recipe } from '../../types/Recipe';
 import { RecipeForm } from '.';
@@ -66,5 +68,17 @@ describe('RecipeForm', (): void => {
 
     assert.that(onSaveSpy.calledOnce).is.true();
     assert.that(onSaveSpy.firstCall.firstArg).is.equalTo(expectedRecipe);
+  });
+
+  it('when given an existing recipe, sets the values of the recipe..', async (): Promise<void> => {
+    const existingRecipe = createRecipe({
+      ingredients: [ createIngredient({ name: 'Test Ingredient' }) ],
+      name: 'Test Recipe'
+    });
+
+    render(<RecipeForm onSave={ noop } recipe={ existingRecipe } />);
+
+    assert.that(screen.getByDisplayValue('Test Recipe')).is.not.null();
+    assert.that(screen.getByDisplayValue('Test Ingredient')).is.not.null();
   });
 });
