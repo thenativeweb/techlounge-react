@@ -1,15 +1,12 @@
 import { Ingredient } from '../../types/Ingredient';
 import { NumericalInput } from '../../components/NumericalInput';
-import { RecipeFormChangeEvent } from './types/RecipeFormChangeEvent';
 import { UnitInput } from '../../components/UnitInput';
 import { FunctionComponent, ReactElement } from 'react';
-
-// Import './IngredientFormPart.css';
 
 interface IngredientFormPartProps {
   ingredient: Ingredient;
   ingredientNumber: number;
-  onChange: (event: RecipeFormChangeEvent, name: string) => void;
+  onChange: (changedIngredient: Ingredient, oldName: string, ingredientNumber: number) => void;
 }
 
 const IngredientFormPart: FunctionComponent<IngredientFormPartProps> = ({ ingredient, ingredientNumber, onChange }): ReactElement => (
@@ -20,21 +17,30 @@ const IngredientFormPart: FunctionComponent<IngredientFormPartProps> = ({ ingred
         type='text'
         value={ ingredient.name }
         name='name'
-        onChange={ (event): void => onChange(event, ingredient.name) }
+        onChange={ (event): void => onChange({
+          ...ingredient,
+          name: event.target.value
+        }, ingredient.name, ingredientNumber) }
       />
     </label>
     <label> Menge:
       <NumericalInput
         value={ ingredient.amount }
         name='amount'
-        onChange={ (value): void => onChange({ target: { value: value.toString() }} as RecipeFormChangeEvent, ingredient.name) }
+        onChange={ (value): void => onChange({
+          ...ingredient,
+          amount: value
+        }, ingredient.name, ingredientNumber) }
       />
     </label>
     <label>
       <span className='visuallyhidden'>Mengeneinheit</span>
       <UnitInput
         value={ ingredient.unit }
-        onChange={ (value): void => onChange({ target: { value }} as RecipeFormChangeEvent, ingredient.name) }
+        onChange={ (value): void => onChange({
+          ...ingredient,
+          unit: value
+        }, ingredient.name, ingredientNumber) }
       />
     </label>
   </div>

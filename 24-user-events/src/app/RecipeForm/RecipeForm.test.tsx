@@ -1,6 +1,8 @@
 import { assert } from 'assertthat';
 import { noop } from '../../../fixtures/noop';
+import { Recipe } from '../../types/Recipe';
 import { RecipeForm } from '.';
+import sinon from 'sinon';
 import userEvent from '@testing-library/user-event';
 import { render, screen, within } from '@testing-library/react';
 
@@ -38,5 +40,31 @@ describe('RecipeForm', (): void => {
     userEvent.click(addIngredientButton);
 
     assert.that(screen.getByLabelText('Zutat 2')).is.not.null();
+  });
+
+  it('on save returns the entire filled recipe.', async (): Promise<void> => {
+    const onSaveSpy = sinon.spy();
+
+    render(<RecipeForm onSave={ onSaveSpy } />);
+
+    userEvent.type(screen.getByLabelText('Name des Rezepts:'), 'New RecipeName');
+    userEvent.type(screen.getByLabelText('Zutat:'), 'First Ingredient');
+    userEvent.type(screen.getByLabelText('Menge:'), '200');
+    userEvent.selectOptions(screen.getByLabelText('Mengeneinheit'), 'Gramm');
+    userEvent.click(screen.getByLabelText('New RecipeName speichern'));
+
+    const expectedRecipe: Recipe = {
+      id: null,
+      ingredients: [{
+        amount: 200,
+        name: 'First Ingredient',
+        unit: 'Gramm'
+      }],
+      name: 'New RecipeName',
+      showEditForm: false
+    };
+
+    assert.that(onSaveSpy.calledOnce).is.true();
+    assert.that(onSaveSpy.firstCall.firstArg).is.equalTo(expectedRecipe);
   });
 });
