@@ -8,3 +8,7 @@
 .ingredient-form input {
   display: inline-block;
 }
+
+.visuallyhidden {
+  visibility: hidden;
+}

@@ -71,6 +71,7 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
     <IngredientFormPart
       // eslint-disable-next-line react/no-array-index-key
       key={ `ingredient-${index}` }
+      ingredientNumber={ index + 1 }
       ingredient={ ingredient }
       onChange={ handleIngredientChange }
     />
@@ -78,7 +79,7 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
 
   return (
     <article>
-      <form>
+      <form role='form' aria-label='Rezept bearbeiten'>
         <label>
           Name des Rezepts:
           {' '}
@@ -91,7 +92,7 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
         <label>Zutaten</label>
         <article>
           {ingredientList}
-          <button type='button' onClick={ (): void => handleAddIngredient() }>Zutat hinzufügen</button>
+          <button type='button' onClick={ (): void => handleAddIngredient() } aria-label='Zutat hinzufügen'>Zutat hinzufügen</button>
         </article>
         <button type='button' onClick={ (): void => handleRecipeSave() } aria-label={ `${recipeName} speichern` }>Speichern</button>
       </form>
