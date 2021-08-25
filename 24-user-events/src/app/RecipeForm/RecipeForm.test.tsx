@@ -55,16 +55,18 @@ describe('RecipeForm', (): void => {
     userEvent.selectOptions(screen.getByLabelText('Mengeneinheit'), 'Gramm');
     userEvent.click(screen.getByLabelText('New RecipeName speichern'));
 
-    const expectedRecipe: Recipe = {
+    const expectedRecipe: Recipe = createRecipe({
       id: null,
-      ingredients: [{
-        amount: 200,
-        name: 'First Ingredient',
-        unit: 'Gramm'
-      }],
+      ingredients: [
+        createIngredient({
+          amount: 200,
+          name: 'First Ingredient',
+          unit: 'Gramm'
+        })
+      ],
       name: 'New RecipeName',
       showEditForm: false
-    };
+    });
 
     assert.that(onSaveSpy.calledOnce).is.true();
     assert.that(onSaveSpy.firstCall.firstArg).is.equalTo(expectedRecipe);
