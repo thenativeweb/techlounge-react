@@ -18,10 +18,11 @@ const TabController: FunctionComponent<TabControllerProps> = ({ children }): Rea
     return (
       <li key={ key }>
         <a
-          role='tab'
           aria-selected={ isVisibleTab }
+          href='#'
           id={ key }
-          href='#' onClick={ (): void => setVisibleTab(index) }
+          onClick={ (): void => setVisibleTab(index) }
+          role='tab'
         >
           {content}
         </a>
