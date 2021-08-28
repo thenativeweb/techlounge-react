@@ -10,13 +10,21 @@ const TabController: FunctionComponent<TabControllerProps> = ({ children }): Rea
 
   const tabSelection = children.map((childElement, index): ReactElement => {
     const key = `tab-${index}`;
-    const content = index === visibleTab ?
+    const isVisibleTab = index === visibleTab;
+    const content = isVisibleTab ?
       (<b>{childElement.props.headline}</b>) :
       (<em>{childElement.props.headline}</em>);
 
     return (
       <li key={ key }>
-        <a href='#' onClick={ (): void => setVisibleTab(index) }>{content}</a>
+        <a
+          role='tab'
+          aria-selected={ isVisibleTab }
+          id={ key }
+          href='#' onClick={ (): void => setVisibleTab(index) }
+        >
+          {content}
+        </a>
       </li>
     );
   });
@@ -24,11 +32,11 @@ const TabController: FunctionComponent<TabControllerProps> = ({ children }): Rea
   return (
     <React.Fragment>
       <nav className='tabHeader'>
-        <ul>
+        <ul role='tablist' aria-label='Tabauswahl'>
           {tabSelection}
         </ul>
       </nav>
-      <article>
+      <article role='tabpanel' tabIndex={ visibleTab } aria-labelledby={ `tab-${visibleTab}` }>
         {children[visibleTab]}
       </article>
     </React.Fragment>
