@@ -18,7 +18,7 @@ describe('RecipeForm', (): void => {
     assert.that(nameInput.value).is.equalTo('');
   });
 
-  it('when given no recipe, creates one empty ingredient sub form.', async (): Promise<void> => {
+  it('when given no recipe, creates one empty ingredient form part.', async (): Promise<void> => {
     render(<RecipeForm onSave={ noop } />);
 
     const firstIngredientInputs = screen.getByLabelText('Zutat 1');
