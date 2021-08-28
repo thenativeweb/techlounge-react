@@ -1,7 +1,7 @@
 {
-  "name": "22-testing-library",
+  "name": "24-user-events",
   "version": "1.0.0",
-  "description": "Wir schreiben Komponenten-Tests mit der React-Testing-Library.",
+  "description": "Wir schreiben Komponenten-Tests mit der React-Testing-Library und User-Event.",
   "scripts": {
     "start": "concurrently \"npm:start-frontend\" \"npm:start-backend\"",
     "start-frontend": "webpack serve",
