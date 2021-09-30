@@ -1,5 +1,6 @@
 import { IngredientsList } from '../components/IngredientsList';
 import { Recipe } from '../types/Recipe';
+import { RecipeApi } from '../api/RecipeApi';
 import { RecipeChangeHandler } from './RecipeForm/types/RecipeChangeHandler';
 import { RecipeForm } from './RecipeForm';
 import { RecipeList } from './RecipeList/RecipeList';
@@ -8,29 +9,41 @@ import { addRecipe, RecipeListChanger, sumRecipeIngredients, toggleEditForm, upd
 import { FunctionComponent, ReactElement, useEffect, useState } from 'react';
 import { Tab, TabController } from '../components/tabs';
 
-const App: FunctionComponent = (): ReactElement => {
+interface AppProps {
+  recipeApi: RecipeApi;
+}
+
+type ApiState = 'success' | 'loading' | 'error';
+
+const App: FunctionComponent<AppProps> = ({ recipeApi }): ReactElement => {
   const [ recipes, setRecipes ] = useState<Recipe[]>([]);
-  const [ isLoading, setIsLoading ] = useState<boolean>(true);
+  const [ apiState, setApiState ] = useState<ApiState>('loading');
 
   useEffect((): void => {
-    fetch('http://localhost:3000/recipes').
-      then(async (response: Response): Promise<Recipe[]> => response.json()).
+    recipeApi.fetchAllRecipes().
       then(async (loadedRecipes: Recipe[]): Promise<void> => {
-        setIsLoading(false);
+        setApiState('success');
         setRecipes(loadedRecipes);
       }).
-      catch((ex): void => {
+      catch((ex: Error): void => {
         // eslint-disable-next-line no-console
         console.error(`There was an error during fetch:`, ex);
+        setApiState('error');
       });
   }, []);
 
   const changeRecipeStateWith = (recipeListChanger: RecipeListChanger): RecipeChangeHandler =>
     (recipe): void => setRecipes(recipeListChanger(recipes, recipe));
 
-  if (isLoading) {
+  if (apiState === 'loading') {
     return (
       <main>Lade Rezepte...</main>
+    );
+  }
+
+  if (apiState === 'error') {
+    return (
+      <main>Fehler beim Laden der Rezepte. Bitte versuchen sie es später erneut.</main>
     );
   }
 
