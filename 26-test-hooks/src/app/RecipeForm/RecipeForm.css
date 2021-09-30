@@ -1,0 +1,14 @@
+.ingredient-form label {
+  display: inline-block;
+  clear: left;
+  text-align: right;
+  margin-right: 15px;
+}
+
+.ingredient-form input {
+  display: inline-block;
+}
+
+.visuallyhidden {
+  visibility: hidden;
+}
