@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "extends": [
+    "es/browser"
+  ],
+  "env": {
+    "jest/globals": true
+  },
+  "plugins": ["jest"],
+  "parserOptions": {
+    "sourceType": "module",
+    "project": [ "./tsconfig.json" ]
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/unbound-method": "off"
+  }
+}
