@@ -11,12 +11,14 @@
     "build": "webpack",
     "lint": "eslint ./src",
     "test": "mocha './src/**/*.test.{ts,tsx}' --exit",
-    "cypress:open": "cypress open",
-    "cypress": "cypress run"
+    "test:puppeteer": "mocha './puppeteer/**/*.e2e.ts' --exit",
+    "test:cypress": "cypress run",
+    "cypress:open": "cypress open"
   },
   "author": "David Losert",
   "license": "MIT",
   "dependencies": {
+    "@types/puppeteer": "5.4.4",
     "@types/react": "17.0.11",
     "@types/react-dom": "17.0.7",
     "json-server": "0.16.3",
@@ -45,6 +47,8 @@
     "ignore-styles": "5.0.1",
     "jsdom": "16.6.0",
     "mocha": "8.4.0",
+    "pptr-testing-library": "0.6.5",
+    "puppeteer": "10.4.0",
     "sinon": "11.1.2",
     "style-loader": "2.0.0",
     "ts-loader": "8.0.14",
