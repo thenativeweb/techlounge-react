@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Wir testen Hooks und fetch.",
   "scripts": {
-    "start:e2e": "concurrently \"npm:start-frontend\" \"npm:start-backend:e2e\"",
+    "start:e2e": "concurrently \"npm:start-frontend:e2e\" \"npm:start-backend:e2e\"",
     "start": "concurrently \"npm:start-frontend\" \"npm:start-backend\"",
     "start-frontend": "webpack serve",
+    "start-frontend:e2e": "webpack serve --no-watch",
     "start-backend": "json-server --watch mockBackend/mockRecipes.json",
     "start-backend:e2e": "json-server --watch mockBackend/e2eMockRecipes.json",
     "build": "webpack",

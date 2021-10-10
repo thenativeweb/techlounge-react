@@ -6,6 +6,7 @@
     "cypress/globals": true
   },
   "rules": {
-    "mocha/no-synchronous-tests": 0
+    "mocha/no-synchronous-tests": 0,
+    "padding-line-between-statements": 0
   }
 }

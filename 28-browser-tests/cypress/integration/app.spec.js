@@ -17,7 +17,6 @@ describe('Recipe App Tests', () => {
     fillIngredientFormWith('Zutat 1', { name: 'Zucker', amount: '20', unit: 'Gramm' });
 
     cy.findByLabelText('Zutat hinzufügen').click();
-
     fillIngredientFormWith('Zutat 2', { name: 'Milch', amount: '2', unit: 'Liter' });
 
     cy.findByLabelText('FirstRecipe speichern').click();
@@ -35,7 +34,6 @@ describe('Recipe App Tests', () => {
     cy.visit('/');
 
     cy.findByText('Neues Rezept').click();
-    cy.contains('Name des Rezepts:');
 
     cy.findByLabelText('Name des Rezepts:').type('FirstRecipe');
     fillIngredientFormWith('Zutat 1', { name: 'Zucker', amount: '20', unit: 'Gramm' });
