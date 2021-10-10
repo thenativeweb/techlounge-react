@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    "cypress"
+  ],
+  "env": {
+    "cypress/globals": true
+  },
+  "rules": {
+    "mocha/no-synchronous-tests": 0
+  }
+}
