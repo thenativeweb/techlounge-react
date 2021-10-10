@@ -1,13 +1,13 @@
-const { fillIngredientFormWith } = require('./fillIngredientFormWith');
+import { fillIngredientFormWith } from './fillIngredientFormWith';
 
-describe('Recipe App Tests', () => {
-  it('opens the app and show the empty shopping-list.', () => {
+describe('Recipe App Tests', (): void => {
+  it('opens the app and show the empty shopping-list.', (): void => {
     cy.visit('/');
 
     cy.contains('Einkaufsliste');
   });
 
-  it('fills out the recipe with all data and then shows it in the recipes tab.', async () => {
+  it('fills out the recipe with all data and then shows it in the recipes tab.', (): void => {
     cy.visit('/');
 
     cy.findByText('Neues Rezept').click();
@@ -21,7 +21,7 @@ describe('Recipe App Tests', () => {
 
     cy.findByLabelText('FirstRecipe speichern').click();
 
-    cy.findByRole('tablist').within(() => {
+    cy.findByRole('tablist').within((): void => {
       cy.findByText('Rezepte').click();
     });
 
@@ -30,7 +30,7 @@ describe('Recipe App Tests', () => {
     cy.contains('2 Liter Milch');
   });
 
-  it('sums up all entered ingredients on the first page.', () => {
+  it('sums up all entered ingredients on the first page.', (): void => {
     cy.visit('/');
 
     cy.findByText('Neues Rezept').click();
@@ -47,7 +47,7 @@ describe('Recipe App Tests', () => {
     cy.contains('50 Gramm Zucker');
   });
 
-  it('lets a user update a recipe in the recipe-section.', () => {
+  it('lets a user update a recipe in the recipe-section.', (): void => {
     cy.visit('/');
 
     cy.findByText('Neues Rezept').click();
