@@ -1,7 +1,7 @@
 {
-  "name": "28-browser-tests",
+  "name": "29-custom-hooks",
   "version": "1.0.0",
-  "description": "Wir schreiben Browser-Tests mit Cypress und Puppeteer.",
+  "description": "Wir implementieren einen Custom-Hook.",
   "scripts": {
     "start:e2e": "concurrently \"npm:start-frontend:e2e\" \"npm:start-backend:e2e\"",
     "start": "concurrently \"npm:start-frontend\" \"npm:start-backend\"",
