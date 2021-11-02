@@ -2,7 +2,6 @@ import { Ingredient } from '../../types/Ingredient';
 import { IngredientFormPart } from './IngredientForm';
 import { Recipe } from '../../types/Recipe';
 import { RecipeChangeHandler } from './types/RecipeChangeHandler';
-import { RecipeFormChangeEvent } from './types/RecipeFormChangeEvent';
 import { ChangeEvent, FunctionComponent, ReactElement, useState } from 'react';
 import './RecipeForm.css';
 
@@ -15,8 +14,7 @@ const createEmptyIngredient = (): Ingredient => ({
 const emptyState: Recipe = {
   id: null,
   name: '',
-  ingredients: [ createEmptyIngredient() ],
-  showEditForm: false
+  ingredients: [ createEmptyIngredient() ]
 };
 
 interface RecipeFormProps {
@@ -52,8 +50,7 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
     onSave({
       id: recipe.id,
       name: recipeName,
-      ingredients,
-      showEditForm: recipe.showEditForm
+      ingredients
     });
 
     setRecipeName('');
@@ -62,7 +59,6 @@ const RecipeForm: FunctionComponent<RecipeFormProps> = ({ recipe = emptyState, o
 
   const ingredientList = ingredients.map((ingredient, index): ReactElement => (
     <IngredientFormPart
-      // eslint-disable-next-line react/no-array-index-key
       key={ `ingredient-${index}` }
       ingredientNumber={ index + 1 }
       ingredient={ ingredient }

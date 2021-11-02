@@ -64,8 +64,7 @@ describe('RecipeForm', (): void => {
           unit: 'Gramm'
         })
       ],
-      name: 'New RecipeName',
-      showEditForm: false
+      name: 'New RecipeName'
     });
 
     assert.that(onSaveSpy.calledOnce).is.true();

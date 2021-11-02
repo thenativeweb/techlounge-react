@@ -13,7 +13,6 @@ describe('RecipeList', (): void => {
       <RecipeList
         recipes={ [] }
         onSaveChanges={ noop }
-        onToggleEdit={ noop }
       />
     );
 
@@ -29,7 +28,6 @@ describe('RecipeList', (): void => {
       <RecipeList
         recipes={ [ recipe1, recipe2 ] }
         onSaveChanges={ noop }
-        onToggleEdit={ noop }
       />
     );
 
@@ -47,7 +45,6 @@ describe('RecipeList', (): void => {
       <RecipeList
         recipes={ [ recipe ] }
         onSaveChanges={ noop }
-        onToggleEdit={ noop }
       />
     );
 
@@ -58,31 +55,14 @@ describe('RecipeList', (): void => {
     assert.that(within(ingredientList).getByText('2 Gramm Ingredient')).is.not.null();
   });
 
-  it('renders the recipes as a form when showEditForm is set to true.', async (): Promise<void> => {
+  it('renders the recipes as a form on click of edit button.', async (): Promise<void> => {
     const ingredient = createIngredient({ amount: 2, name: 'Ingredient', unit: 'Gramm' });
-    const recipe = createRecipe({ name: 'TestRecipe', showEditForm: true, ingredients: [ ingredient ]});
+    const recipe = createRecipe({ name: 'TestRecipe', ingredients: [ ingredient ]});
 
     render(
       <RecipeList
         recipes={ [ recipe ] }
         onSaveChanges={ noop }
-        onToggleEdit={ noop }
-      />
-    );
-
-    assert.that(screen.getByLabelText('Name des Rezepts:')).is.not.null();
-    assert.that(screen.getByDisplayValue('TestRecipe')).is.not.null();
-  });
-
-  it('calls the onToggleEdit callback on click with the clicked recipe.', async (): Promise<void> => {
-    const recipe = createRecipe({ name: 'TestRecipe', showEditForm: false, ingredients: [ createIngredient() ]});
-    const toggleEditSpy = sinon.spy();
-
-    render(
-      <RecipeList
-        recipes={ [ recipe ] }
-        onSaveChanges={ noop }
-        onToggleEdit={ toggleEditSpy }
       />
     );
 
@@ -90,21 +70,24 @@ describe('RecipeList', (): void => {
 
     userEvent.click(editButton);
 
-    assert.that(toggleEditSpy.calledOnce).is.true();
-    assert.that(toggleEditSpy.firstCall.firstArg).is.equalTo(recipe);
+    assert.that(screen.getByLabelText('Name des Rezepts:')).is.not.null();
+    assert.that(screen.getByDisplayValue('TestRecipe')).is.not.null();
   });
 
-  it('calls the onSaveChanges handler with the recipe when clicking the save button within the recipeForm..', async (): Promise<void> => {
-    const recipe = createRecipe({ id: 1, name: 'TestRecipe', showEditForm: true, ingredients: [ createIngredient() ]});
+  it('calls the onSaveChanges handler with the recipe when clicking the save button within the recipeForm.', async (): Promise<void> => {
+    const recipe = createRecipe({ id: 1, name: 'TestRecipe', ingredients: [ createIngredient() ]});
     const onSaveChangesSpy = sinon.spy();
 
     render(
       <RecipeList
         recipes={ [ recipe ] }
         onSaveChanges={ onSaveChangesSpy }
-        onToggleEdit={ noop }
       />
     );
+
+    const editButton = screen.getByLabelText('TestRecipe bearbeiten');
+
+    userEvent.click(editButton);
 
     const saveButton = screen.getByLabelText('TestRecipe speichern');
 
@@ -112,5 +95,26 @@ describe('RecipeList', (): void => {
 
     assert.that(onSaveChangesSpy.calledOnce).is.true();
     assert.that(onSaveChangesSpy.firstCall.firstArg).is.equalTo(recipe);
+  });
+
+  it('closes the form after saving the recipe in the edit form.', async (): Promise<void> => {
+    const recipe = createRecipe({ id: 1, name: 'TestRecipe', ingredients: [ createIngredient() ]});
+
+    render(
+      <RecipeList
+        recipes={ [ recipe ] }
+        onSaveChanges={ noop }
+      />
+    );
+
+    const editButton = screen.getByLabelText('TestRecipe bearbeiten');
+
+    userEvent.click(editButton);
+
+    const saveButton = screen.getByLabelText('TestRecipe speichern');
+
+    userEvent.click(saveButton);
+
+    assert.that(screen.queryByLabelText('Name des Rezepts:')).is.null();
   });
 });

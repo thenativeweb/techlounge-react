@@ -8,23 +8,9 @@ const addRecipeToList: RecipeListChanger = function (recipes: Recipe[], newRecip
     ...recipes,
     {
       ...newRecipe,
-      id: recipes.length + 1,
-      showEditForm: false
+      id: recipes.length + 1
     }
   ];
-};
-
-const toggleEditFormInList: RecipeListChanger = function (recipes: Recipe[], changedRecipe: Recipe): Recipe[] {
-  return recipes.map((recipe): Recipe => {
-    if (recipe.id === changedRecipe.id) {
-      return {
-        ...changedRecipe,
-        showEditForm: !changedRecipe.showEditForm
-      };
-    }
-
-    return recipe;
-  });
 };
 
 const updateRecipeInList: RecipeListChanger = function (recipes: Recipe[], changedRecipe: Recipe): Recipe[] {
@@ -32,8 +18,7 @@ const updateRecipeInList: RecipeListChanger = function (recipes: Recipe[], chang
     if (recipe.id === changedRecipe.id) {
       return {
         ...recipe,
-        ...changedRecipe,
-        showEditForm: false
+        ...changedRecipe
       };
     }
 
@@ -61,4 +46,4 @@ const sumRecipeIngredients = function (recipes: Recipe[]): Ingredient[] {
     );
 };
 
-export { RecipeListChanger, addRecipeToList, toggleEditFormInList, updateRecipeInList, sumRecipeIngredients };
+export { RecipeListChanger, addRecipeToList, updateRecipeInList, sumRecipeIngredients };

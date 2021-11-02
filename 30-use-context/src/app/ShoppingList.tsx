@@ -12,7 +12,6 @@ const ShoppingList: FunctionComponent = (): ReactElement => {
     recipes,
     apiStatus,
     addRecipe,
-    toggleEditForm,
     updateRecipe
   } = useRecipeApi();
 
@@ -36,7 +35,7 @@ const ShoppingList: FunctionComponent = (): ReactElement => {
           <IngredientsList items={ sumRecipeIngredients(recipes) } />
         </Tab>
         <Tab headline='Rezepte'>
-          <RecipeList recipes={ recipes } onToggleEdit={ toggleEditForm } onSaveChanges={ updateRecipe } />
+          <RecipeList recipes={ recipes } onSaveChanges={ updateRecipe } />
         </Tab>
         <Tab headline='Neues Rezept'>
           <RecipeForm onSave={ addRecipe } />

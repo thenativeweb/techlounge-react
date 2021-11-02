@@ -1,6 +1,6 @@
 import { FetchApiContext } from './ApiContext';
 import { Recipe } from '../types/Recipe';
-import { addRecipeToList, toggleEditFormInList, updateRecipeInList } from '../app/recipeStateService';
+import { addRecipeToList, updateRecipeInList } from '../app/recipeStateService';
 import { useContext, useEffect, useState } from 'react';
 
 type ApiStatus = 'loading' | 'success' | 'error';
@@ -10,7 +10,6 @@ interface UseRecipeApi {
   apiStatus: ApiStatus;
   addRecipe: (recipe: Recipe) => void;
   updateRecipe: (recipe: Recipe) => void;
-  toggleEditForm: (recipe: Recipe) => void;
 }
 
 const useRecipeApi = (): UseRecipeApi => {
@@ -39,16 +38,11 @@ const useRecipeApi = (): UseRecipeApi => {
     setRecipes((currentRecipes): Recipe[] => updateRecipeInList(currentRecipes, recipe));
   };
 
-  const toggleEditForm = (recipe: Recipe): void => {
-    setRecipes((currentRecipes): Recipe[] => toggleEditFormInList(currentRecipes, recipe));
-  };
-
   return {
     recipes,
     apiStatus,
     addRecipe,
-    updateRecipe,
-    toggleEditForm
+    updateRecipe
   };
 };
 

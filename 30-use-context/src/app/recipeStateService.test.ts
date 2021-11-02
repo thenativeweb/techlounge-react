@@ -2,7 +2,7 @@ import { assert } from 'assertthat';
 import { createIngredient } from '../../fixtures/createIngredient';
 import { createRecipe } from '../../fixtures/createRecipe';
 import { Recipe } from '../types/Recipe';
-import { addRecipeToList, sumRecipeIngredients, toggleEditFormInList, updateRecipeInList } from './recipeStateService';
+import { addRecipeToList, sumRecipeIngredients, updateRecipeInList } from './recipeStateService';
 
 describe('recipeStateService', (): void => {
   describe('addRecipe()', (): void => {
@@ -71,45 +71,6 @@ describe('recipeStateService', (): void => {
 
       assert.that(resultRecipes).is.not.containing(oldRecipe);
       assert.that(resultRecipes).is.equalTo([ updatedRecipe, otherRecipe ]);
-    });
-
-    it('always sets "showEditForm" to false.', async (): Promise<void> => {
-      const oldRecipe = createRecipe({ id: 1, name: 'OldName', showEditForm: true });
-      const updatedRecipe = createRecipe({ id: 1, name: 'NewRecipe', showEditForm: true });
-
-      const resultRecipes = updateRecipeInList([ oldRecipe ], updatedRecipe);
-
-      assert.that(resultRecipes[0].showEditForm).is.false();
-    });
-  });
-
-  describe('toggleEditForm()', (): void => {
-    it('sets showEditForm to true if false.', async (): Promise<void> => {
-      const recipe = createRecipe({ showEditForm: false });
-
-      const result = toggleEditFormInList([ recipe ], recipe);
-
-      assert.that(result[0].showEditForm).is.true();
-    });
-
-    it('sets showEditForm to false if true.', async (): Promise<void> => {
-      const recipe = createRecipe({ showEditForm: true });
-
-      const result = toggleEditFormInList([ recipe ], recipe);
-
-      assert.that(result[0].showEditForm).is.false();
-    });
-
-    it('leaves other recipes untouched.', async (): Promise<void> => {
-      const toggleRecipe = createRecipe({ id: 1, showEditForm: false });
-      const otherRecipe = createRecipe({ id: 2, showEditForm: false });
-
-      const result = toggleEditFormInList([ toggleRecipe, otherRecipe ], toggleRecipe);
-
-      assert.that(result).is.equalTo([
-        { ...toggleRecipe, showEditForm: true },
-        otherRecipe
-      ]);
     });
   });
 });
