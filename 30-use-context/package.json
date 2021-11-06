@@ -1,7 +1,7 @@
 {
   "name": "30-use-context",
   "version": "1.0.0",
-  "description": "Wir implementieren einen Custom-Hook.",
+  "description": "Wir nutzen den useContext-Hook.",
   "scripts": {
     "start:e2e": "concurrently \"npm:start-frontend:e2e\" \"npm:start-backend:e2e\"",
     "start": "concurrently \"npm:start-frontend\" \"npm:start-backend\"",
