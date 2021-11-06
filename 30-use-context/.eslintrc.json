@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "extends": [
+    "es/browser"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "project": [ "./tsconfig.json" ]
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/unbound-method": "off"
+  }
+}
