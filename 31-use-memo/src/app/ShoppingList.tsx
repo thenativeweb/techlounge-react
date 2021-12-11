@@ -1,10 +1,11 @@
+import { Ingredient } from '../types/Ingredient';
 import { IngredientsList } from '../components/IngredientsList';
 import { RecipeForm } from './RecipeForm';
 import { RecipeList } from './RecipeList/RecipeList';
 import { sumRecipeIngredients } from './recipeStateService';
 import { useRecipeApi } from '../api/useRecipeApi';
 import { Watch } from './Watch';
-import { FunctionComponent, ReactElement } from 'react';
+import { FunctionComponent, ReactElement, useMemo } from 'react';
 import { Tab, TabController } from '../components/tabs';
 
 const ShoppingList: FunctionComponent = (): ReactElement => {
@@ -14,6 +15,8 @@ const ShoppingList: FunctionComponent = (): ReactElement => {
     addRecipe,
     updateRecipe
   } = useRecipeApi();
+
+  const recipeSum = useMemo((): Ingredient[] => sumRecipeIngredients(recipes), [ recipes ]);
 
   if (apiStatus === 'loading') {
     return (
@@ -32,7 +35,7 @@ const ShoppingList: FunctionComponent = (): ReactElement => {
       <Watch />
       <TabController>
         <Tab headline='Einkaufsliste'>
-          <IngredientsList items={ sumRecipeIngredients(recipes) } />
+          <IngredientsList items={ recipeSum } />
         </Tab>
         <Tab headline='Rezepte'>
           <RecipeList recipes={ recipes } onSaveChanges={ updateRecipe } />
