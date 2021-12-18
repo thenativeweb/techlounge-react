@@ -1,7 +1,7 @@
 {
-  "name": "30-use-context",
+  "name": "31-use-memo",
   "version": "1.0.0",
-  "description": "Wir nutzen den useContext-Hook.",
+  "description": "Performance-Optimierung mit useMemo, useCallback und React.memo",
   "scripts": {
     "start:e2e": "concurrently \"npm:start-frontend:e2e\" \"npm:start-backend:e2e\"",
     "start": "concurrently \"npm:start-frontend\" \"npm:start-backend\"",
