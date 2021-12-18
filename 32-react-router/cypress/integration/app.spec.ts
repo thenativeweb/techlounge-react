@@ -21,7 +21,7 @@ describe('Recipe App Tests', (): void => {
 
     cy.findByLabelText('FirstRecipe speichern').click();
 
-    cy.findByRole('tablist').within((): void => {
+    cy.findByRole('navigation').within((): void => {
       cy.findByText('Rezepte').click();
     });
 

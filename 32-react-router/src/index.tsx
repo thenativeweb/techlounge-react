@@ -1,8 +1,8 @@
+import { App } from './app/App';
 import ReactDOM from 'react-dom';
-import { ShoppingList } from './app/ShoppingList';
 
 import './styles.css';
 
 const domTarget = document.querySelector('#my-react-app');
 
-ReactDOM.render(<ShoppingList />, domTarget);
+ReactDOM.render(<App />, domTarget);

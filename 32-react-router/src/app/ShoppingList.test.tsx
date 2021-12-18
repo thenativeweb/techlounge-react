@@ -3,6 +3,7 @@ import { createIngredient } from '../../fixtures/createIngredient';
 import { createRecipe } from '../../fixtures/createRecipe';
 import { createTestRecipeApi } from '../api/TestRecipeApi';
 import { FetchApiContext } from '../api/ApiContext';
+import { MemoryRouter } from 'react-router-dom';
 import { Recipe } from '../types/Recipe';
 import { RecipeApi } from '../api/RecipeApi';
 import { ShoppingList } from './ShoppingList';
@@ -22,9 +23,11 @@ describe('ShoppingList', (): void => {
     });
 
     render(
-      <FetchApiContext.Provider value={mockRecipeApi}>
-        <ShoppingList />
-      </FetchApiContext.Provider>
+      <MemoryRouter>
+        <FetchApiContext.Provider value={ mockRecipeApi }>
+          <ShoppingList />
+        </FetchApiContext.Provider>
+      </MemoryRouter>
     );
 
     assert.that(await screen.findByText('Test Ingredient', { exact: false })).is.not.null();
@@ -38,9 +41,11 @@ describe('ShoppingList', (): void => {
     });
 
     render(
-      <FetchApiContext.Provider value={mockRecipeApi}>
-        <ShoppingList />
-      </FetchApiContext.Provider>
+      <MemoryRouter>
+        <FetchApiContext.Provider value={ mockRecipeApi }>
+          <ShoppingList />
+        </FetchApiContext.Provider>
+      </MemoryRouter>
     );
 
     assert.that(screen.getByText('Lade Rezepte...')).is.not.null();
@@ -58,9 +63,11 @@ describe('ShoppingList', (): void => {
     });
 
     render(
-      <FetchApiContext.Provider value={mockRecipeApi}>
-        <ShoppingList />
-      </FetchApiContext.Provider>
+      <MemoryRouter>
+        <FetchApiContext.Provider value={ mockRecipeApi }>
+          <ShoppingList />
+        </FetchApiContext.Provider>
+      </MemoryRouter>
     );
 
     assert.that(await screen.findByText('Fehler beim Laden der Rezepte.', { exact: false })).is.not.null();

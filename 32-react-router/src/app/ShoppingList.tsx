@@ -1,11 +1,19 @@
 import { Ingredient } from '../types/Ingredient';
 import { IngredientsList } from '../components/IngredientsList';
+import { Navigation } from './Navigation';
+import { Page } from './Page';
 import { RecipeForm } from './RecipeForm';
 import { RecipeList } from './RecipeList/RecipeList';
 import { sumRecipeIngredients } from './recipeStateService';
 import { useRecipeApi } from '../api/useRecipeApi';
-import { FunctionComponent, ReactElement, useMemo } from 'react';
-import { Tab, TabController } from '../components/tabs';
+import { Fragment, FunctionComponent, ReactElement, useMemo } from 'react';
+import { Route, Routes } from 'react-router-dom';
+
+const navs = [
+  { link: '/', title: 'Einkaufsliste' },
+  { link: '/recipes', title: 'Rezepte' },
+  { link: '/new-recipe', title: 'Neues Rezept' }
+];
 
 const ShoppingList: FunctionComponent = (): ReactElement => {
   const {
@@ -30,22 +38,37 @@ const ShoppingList: FunctionComponent = (): ReactElement => {
   }
 
   return (
-    <main>
-      <TabController>
-        <Tab headline='Einkaufsliste'>
-          <IngredientsList items={ recipeSum } />
-        </Tab>
-        <Tab headline='Rezepte'>
-          <RecipeList
-            recipes={ recipes }
-            onSaveChanges={ updateRecipe }
+    <Fragment>
+      <Navigation navConfiguration={ navs } />
+      <main>
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <Page title='Einkaufsliste'>
+                <IngredientsList items={ recipeSum } />
+              </Page>
+            }
           />
-        </Tab>
-        <Tab headline='Neues Rezept'>
-          <RecipeForm onSave={ addRecipe } />
-        </Tab>
-      </TabController>
-    </main>
+          <Route
+            path='/recipes'
+            element={
+              <Page title='Rezepte'>
+                <RecipeList recipes={ recipes } onSaveChanges={ updateRecipe } />
+              </Page>
+            }
+          />
+          <Route
+            path='/new-recipe'
+            element={
+              <Page title='Neues Rezept'>
+                <RecipeForm onSave={ addRecipe } />
+              </Page>
+            }
+          />
+        </Routes>
+      </main>
+    </Fragment>
   );
 };
 

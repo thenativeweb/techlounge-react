@@ -32,11 +32,11 @@ describe('Puppeteer App Tests', function (): void {
     assert.that($headline).is.not.empty();
   });
 
-  it('fills out the recipe with all data and then shows it in the recipes tab.', async (): Promise<void> => {
-    const $tabs = await getByRole($document, 'tablist');
+  it('fills out the recipe with all data and then shows it in the recipes page.', async (): Promise<void> => {
+    const $links = await getByRole($document, 'navigation');
 
-    const $newRecipeTabButton = await getByText($tabs, 'Neues Rezept');
-    await $newRecipeTabButton.click();
+    const $newRecipeLink = await getByText($links, 'Neues Rezept');
+    await $newRecipeLink.click();
 
     const $recipeNameInput = await findByLabelText($document, 'Name des Rezepts:');
     await $recipeNameInput.type('FirstRecipe');
@@ -49,8 +49,8 @@ describe('Puppeteer App Tests', function (): void {
     const $saveRecipeButton = await getByLabelText($document, 'FirstRecipe speichern');
     await $saveRecipeButton.click();
 
-    const recipeTabButton = await getByText($tabs, 'Rezepte');
-    await recipeTabButton.click();
+    const recipeLink = await getByText($links, 'Rezepte');
+    await recipeLink.click();
 
     const $firstRecipeName = await findByText($document, 'FirstRecipe', { exact: false });
     const $firstIngredientText = await getByText($document, '20 Gramm Zucker');
@@ -62,10 +62,10 @@ describe('Puppeteer App Tests', function (): void {
   });
 
   it('sums up all entered ingredients on the first page.', async (): Promise<void> => {
-    const $tabs = await getByRole($document, 'tablist');
-    const $newRecipeTabButton = await getByText($tabs, 'Neues Rezept');
+    const $links = await getByRole($document, 'navigation');
+    const $newRecipeLink = await getByText($links, 'Neues Rezept');
 
-    await $newRecipeTabButton.click();
+    await $newRecipeLink.click();
     const $recipeNameInput = await findByLabelText($document, 'Name des Rezepts:');
     await $recipeNameInput.type('FirstRecipe');
     await fillIngredientFormWith($document, 'Zutat 1', { name: 'Zucker', amount: '20', unit: 'Gramm' });
@@ -77,18 +77,18 @@ describe('Puppeteer App Tests', function (): void {
     await fillIngredientFormWith($document, 'Zutat 1', { name: 'Zucker', amount: '30', unit: 'Gramm' });
     await $saveRecipeButton.click();
 
-    const $shoppingListTabButton = await getByText($tabs, 'Einkaufsliste');
-    await $shoppingListTabButton.click();
+    const $shoppingListLink = await getByText($links, 'Einkaufsliste');
+    await $shoppingListLink.click();
 
     const $summedIngredientText = await findByText($document, '50 Gramm Zucker');
     assert.that($summedIngredientText).is.not.null();
   });
 
   it('lets a user update a recipe in the recipe-section.', async (): Promise<void> => {
-    const $tabs = await getByRole($document, 'tablist');
-    const $newRecipeTabButton = await getByText($tabs, 'Neues Rezept');
+    const $links = await getByRole($document, 'navigation');
+    const $newRecipeLink = await getByText($links, 'Neues Rezept');
 
-    await $newRecipeTabButton.click();
+    await $newRecipeLink.click();
     const $recipeNameInput = await findByLabelText($document, 'Name des Rezepts:');
     await $recipeNameInput.type('FirstRecipe');
     await fillIngredientFormWith($document, 'Zutat 1', { name: 'Zucker', amount: '20', unit: 'Gramm' });
@@ -96,8 +96,8 @@ describe('Puppeteer App Tests', function (): void {
     const $saveRecipeButton = await getByLabelText($document, 'FirstRecipe speichern');
     await $saveRecipeButton.click();
 
-    const recipeTabButton = await getByText($tabs, 'Rezepte');
-    await recipeTabButton.click();
+    const recipeLink = await getByText($links, 'Rezepte');
+    await recipeLink.click();
 
     // Wait till page is loaded
     await findByText($document, 'FirstRecipe', { exact: false });
