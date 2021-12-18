@@ -1,7 +1,7 @@
 import { FetchApiContext } from './ApiContext';
 import { Recipe } from '../types/Recipe';
 import { addRecipeToList, updateRecipeInList } from '../app/recipeStateService';
-import { useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 
 type ApiStatus = 'loading' | 'success' | 'error';
 
@@ -34,9 +34,9 @@ const useRecipeApi = (): UseRecipeApi => {
     setRecipes((currentRecipes): Recipe[] => addRecipeToList(currentRecipes, recipe));
   };
 
-  const updateRecipe = (recipe: Recipe): void => {
+  const updateRecipe = useCallback((recipe: Recipe): void => {
     setRecipes((currentRecipes): Recipe[] => updateRecipeInList(currentRecipes, recipe));
-  };
+  }, []);
 
   return {
     recipes,

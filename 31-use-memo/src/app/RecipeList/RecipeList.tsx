@@ -1,17 +1,19 @@
 import { Recipe } from '../../types/Recipe';
 import { RecipeChangeHandler } from '../RecipeForm/types/RecipeChangeHandler';
 import { RecipeItem } from './RecipeItem';
-import { FunctionComponent, ReactElement } from 'react';
+import { FunctionComponent, memo, ReactElement } from 'react';
 
 interface RecipeListProps {
   recipes: Recipe[];
   onSaveChanges: RecipeChangeHandler;
 }
 
+const MemoizedRecipeItem = memo(RecipeItem);
+
 const RecipeList: FunctionComponent<RecipeListProps> = ({ recipes, onSaveChanges }): ReactElement => {
   const listComponents: ReactElement[] = recipes.map((recipe: Recipe): ReactElement => (
     <li key={ recipe.id }>
-      <RecipeItem recipe={recipe} onSaveChanges={onSaveChanges} />
+      <MemoizedRecipeItem recipe={ recipe } onSaveChanges={ onSaveChanges } />
     </li>
   ));
 
