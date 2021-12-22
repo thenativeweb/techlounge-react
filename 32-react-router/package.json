@@ -1,7 +1,7 @@
 {
-  "name": "31-use-memo",
+  "name": "32-react-router",
   "version": "1.0.0",
-  "description": "Performance-Optimierung mit useMemo, useCallback und React.memo",
+  "description": "Routing im Frontend mit React-Router.",
   "scripts": {
     "start:e2e": "concurrently \"npm:start-frontend:e2e\" \"npm:start-backend:e2e\"",
     "start": "concurrently \"npm:start-frontend\" \"npm:start-backend\"",
