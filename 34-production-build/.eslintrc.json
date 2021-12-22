@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "extends": [
+    "es/browser"
+  ],
+  "globals": {
+    "PRODUCTION": "readonly",
+    "RECIPE_API_ENDPOINT": "readonly"
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "project": [ "./tsconfig.json" ]
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/unbound-method": "off"
+  }
+}
