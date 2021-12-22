@@ -31,7 +31,7 @@ const RecipeItem: FunctionComponent<RecipeItemProps> = ({ recipe, onSaveChanges 
         onClick={ (): void => onToggleEdit() }
         aria-label={ `${recipe.name} bearbeiten` }
       >
-            Bearbeiten
+        Bearbeiten
       </a>
       {subContent}
     </Fragment>
