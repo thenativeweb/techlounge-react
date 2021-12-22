@@ -3,6 +3,10 @@
   "extends": [
     "es/browser"
   ],
+  "globals": {
+    "PRODUCTION": "readonly",
+    "RECIPE_API_ENDPOINT": "readonly"
+  },
   "parserOptions": {
     "sourceType": "module",
     "project": [ "./tsconfig.json" ]

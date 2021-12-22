@@ -1,15 +1,15 @@
 {
-  "name": "33-composition",
+  "name": "34-production-build",
   "version": "1.0.0",
-  "description": "Kompositions-Praktiken mit React.",
+  "description": "Wir generieren einen Production Build mit Webpack.",
   "scripts": {
     "start:e2e": "concurrently \"npm:start-frontend:e2e\" \"npm:start-backend:e2e\"",
     "start": "concurrently \"npm:start-frontend\" \"npm:start-backend\"",
-    "start-frontend": "webpack serve",
+    "start-frontend": "webpack serve --config webpack.dev.js",
     "start-frontend:e2e": "webpack serve --no-watch",
     "start-backend": "json-server --watch mockBackend/mockRecipes.json",
     "start-backend:e2e": "json-server --watch mockBackend/e2eMockRecipes.json",
-    "build": "webpack",
+    "build": "webpack --config webpack.prod.js",
     "lint": "eslint ./src",
     "test": "mocha './src/**/*.test.{ts,tsx}' --exit",
     "test:puppeteer": "mocha './puppeteer/**/*.e2e.ts' --exit",
@@ -58,6 +58,7 @@
     "typescript": "4.1.3",
     "webpack": "5.11.1",
     "webpack-cli": "4.3.1",
-    "webpack-dev-server": "3.11.1"
+    "webpack-dev-server": "3.11.1",
+    "webpack-merge": "5.8.0"
   }
 }

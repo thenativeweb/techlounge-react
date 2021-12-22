@@ -2,19 +2,27 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  devtool: 'inline-source-map',
   entry: path.join(__dirname, 'src', 'index.tsx'),
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
+        test: /\.tsx?$/u,
+        use: {
+          loader: 'ts-loader',
+          options: {
+            compilerOptions: {
+              // eslint-disable-next-line no-process-env
+              jsx: process.env.NODE_ENV === 'development' ?
+                'react-jsxdev' :
+                'react-jsx'
+            }
+          }
+        },
+        exclude: /node_modules/u
       },
       {
-        test: /\.css$/,
-        exclude: /node_modules/,
+        test: /\.css$/u,
+        exclude: /node_modules/u,
         use: [
           'style-loader',
           'css-loader'
