@@ -4,6 +4,9 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
+  devServer: {
+    historyApiFallback: true
+  },
   entry: path.join(__dirname, 'src', 'index.tsx'),
   module: {
     rules: [
