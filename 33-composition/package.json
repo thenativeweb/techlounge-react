@@ -48,7 +48,7 @@
     "html-webpack-plugin": "4.5.1",
     "ignore-styles": "5.0.1",
     "jsdom": "16.6.0",
-    "mocha": "8.4.0",
+    "mocha": "10.1.0",
     "pptr-testing-library": "0.6.5",
     "puppeteer": "10.4.0",
     "sinon": "11.1.2",
