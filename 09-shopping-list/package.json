@@ -10,7 +10,7 @@
   "author": "David Losert",
   "license": "MIT",
   "dependencies": {
-    "json-server": "0.16.1",
+    "json-server": "0.17.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
