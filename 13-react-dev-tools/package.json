@@ -19,7 +19,7 @@
     "@babel/core": "7.9.6",
     "@babel/preset-react": "7.9.4",
     "babel-loader": "8.1.0",
-    "css-loader": "3.6.0",
+    "css-loader": "7.1.5",
     "html-webpack-plugin": "4.3.0",
     "style-loader": "1.2.1",
     "webpack": "4.43.0",
